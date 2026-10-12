@@ -3,29 +3,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Discover AI tools for writing, coding, images, video, productivity and more.">
   <meta name="google-site-verification" content="CkueB7Qgyj5rJ_k2UZdph4emXAP5P7zquvCNOxcEnKw">
-
   <title>All-in-One AI Hub | Discover AI Tools</title>
 
   <!-- Google AdSense -->
-  <script async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4273007448994004"
-    crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4273007448994004" crossorigin="anonymous"></script>
 
   <style>
     :root {
       --bg: #f7f8fc;
-      --surface: #ffffff;
+      --surface: #fff;
       --text: #172033;
       --muted: #68738a;
       --primary: #635bff;
       --border: #e7eaf2;
-      --shadow: 0 8px 28px rgba(29, 39, 72, .07);
+      --shadow: 0 8px 28px rgba(29,39,72,.07);
     }
 
     * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
 
     body {
       margin: 0;
@@ -35,11 +33,7 @@
     }
 
     a { color: inherit; text-decoration: none; }
-
-    button, input, select, textarea {
-      font: inherit;
-    }
-
+    button, input, select, textarea { font: inherit; }
     button { cursor: pointer; }
 
     .topbar {
@@ -47,7 +41,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 14px;
-      padding: 16px 5%;
+      padding: 15px 5%;
       background: var(--surface);
       border-bottom: 1px solid var(--border);
       position: sticky;
@@ -56,7 +50,7 @@
     }
 
     .brand {
-      font-size: 21px;
+      font-size: 22px;
       font-weight: 800;
       color: var(--primary);
       white-space: nowrap;
@@ -64,7 +58,7 @@
 
     .header-actions {
       display: flex;
-      gap: 9px;
+      gap: 10px;
       align-items: center;
     }
 
@@ -83,9 +77,9 @@
     }
 
     .hero {
-      padding: 65px 18px 38px;
+      padding: 65px 18px 40px;
       text-align: center;
-      background: linear-gradient(135deg, #eeedff, #f9faff, #e8f7ff);
+      background: linear-gradient(135deg,#eeedff,#f9faff,#e8f7ff);
     }
 
     .eyebrow {
@@ -95,11 +89,11 @@
       background: white;
       color: var(--primary);
       font-size: 13px;
-      font-weight: 700;
+      font-weight: bold;
     }
 
     .hero h1 {
-      font-size: clamp(30px, 5vw, 54px);
+      font-size: clamp(30px,5vw,54px);
       margin: 20px auto 14px;
       max-width: 800px;
       line-height: 1.12;
@@ -130,7 +124,6 @@
       padding: 12px;
       border: 0;
       outline: 0;
-      background: transparent;
     }
 
     main {
@@ -148,7 +141,6 @@
     }
 
     .section-heading h2 { margin: 0; font-size: 25px; }
-
     .muted { color: var(--muted); }
 
     .categories {
@@ -174,7 +166,7 @@
 
     .tools-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(4,minmax(0,1fr));
       gap: 18px;
     }
 
@@ -238,18 +230,18 @@
       border-radius: 9px;
       background: #f1f2ff;
       color: var(--primary);
-      font-weight: 700;
+      font-weight: bold;
     }
 
     .empty {
-      grid-column: 1 / -1;
+      grid-column: 1/-1;
       padding: 45px 10px;
       text-align: center;
       color: var(--muted);
     }
 
     .ad-space {
-      margin: 30px 0;
+      margin: 0 0 30px;
       padding: 18px;
       border: 1px dashed #cbd1df;
       border-radius: 12px;
@@ -274,7 +266,7 @@
       position: fixed;
       inset: 0;
       z-index: 100;
-      background: rgba(14, 20, 40, .6);
+      background: rgba(14,20,40,.65);
       padding: 18px;
       overflow-y: auto;
       align-items: center;
@@ -314,7 +306,7 @@
 
     .field label {
       display: block;
-      font-weight: 700;
+      font-weight: bold;
       font-size: 14px;
       margin-bottom: 7px;
     }
@@ -367,6 +359,7 @@
     }
 
     .goog-te-gadget { font-size: 0 !important; }
+
     .goog-te-gadget select {
       max-width: 145px;
       padding: 9px;
@@ -379,16 +372,16 @@
     body .goog-te-banner-frame { display: none !important; }
     body { top: 0 !important; }
 
-    @media (max-width: 1000px) {
-      .tools-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    @media(max-width:1000px) {
+      .tools-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
     }
 
-    @media (max-width: 700px) {
+    @media(max-width:700px) {
       .topbar { padding: 12px 4%; flex-wrap: wrap; }
       .brand { font-size: 18px; }
       .header-actions { flex-wrap: wrap; }
       .hero { padding-top: 45px; }
-      .tools-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .tools-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
       main { padding: 28px 13px 45px; }
       .tool-card { padding: 15px; min-height: 240px; }
       .tool-card h3 { font-size: 16px; }
@@ -396,7 +389,7 @@
       .section-heading h2 { font-size: 21px; }
     }
 
-    @media (max-width: 390px) {
+    @media(max-width:390px) {
       .tools-grid { grid-template-columns: 1fr; }
       .header-actions { width: 100%; justify-content: space-between; }
     }
@@ -405,11 +398,10 @@
 
 <body>
   <header class="topbar">
-    <a class="brand" href="#" aria-label="All-in-One AI Hub home">✦ AI Hub</a>
-
+    <a class="brand" href="#" aria-label="AI Hub home">✦ AI Hub</a>
     <div class="header-actions">
-      <div id="google_translate_element" aria-label="Select language"></div>
-      <button class="btn btn-primary" id="adminOpen">Admin Login</button>
+      <div id="google_translate_element"></div>
+      <button class="btn btn-primary" id="adminOpen" type="button">Admin Login</button>
     </div>
   </header>
 
@@ -417,29 +409,20 @@
     <span class="eyebrow">✦ Your AI discovery platform</span>
     <h1>Discover the Best AI Tools in One Place</h1>
     <p>Explore AI tools for writing, coding, images, video, learning and productivity.</p>
-
     <div class="search-box">
-      <input id="searchInput" type="search"
-        placeholder="Search AI tools or categories..."
-        aria-label="Search AI tools">
-      <button class="btn btn-primary" id="searchButton">Search</button>
+      <input id="searchInput" type="search" placeholder="Search AI tools or categories..." aria-label="Search AI tools">
+      <button class="btn btn-primary" id="searchButton" type="button">Search</button>
     </div>
   </section>
 
   <main>
     <div class="ad-space">Advertisement</div>
-
-    <div class="section-heading">
-      <h2>Explore Categories</h2>
-    </div>
-
+    <div class="section-heading"><h2>Explore Categories</h2></div>
     <div class="categories" id="categories"></div>
-
     <div class="section-heading">
       <h2>AI Tools Directory</h2>
       <span class="muted" id="toolCount"></span>
     </div>
-
     <div class="tools-grid" id="toolsGrid"></div>
   </main>
 
@@ -454,254 +437,107 @@
     <small>Some tools are provided by third parties. Please review their terms before use.</small>
   </footer>
 
-  <!-- Admin panel -->
-  <div class="modal" id="adminModal" role="dialog"
-       aria-modal="true" aria-labelledby="adminTitle">
+  <!-- Admin login and management panel -->
+  <div class="modal" id="adminModal" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
     <div class="modal-box">
       <div class="modal-header">
         <h2 id="adminTitle">Admin Panel</h2>
-        <button class="close-btn" id="adminClose" aria-label="Close">✕</button>
+        <button class="close-btn" id="adminClose" type="button" aria-label="Close">✕</button>
       </div>
 
       <div id="loginSection">
         <div class="notice">
-          Demo mode only: this password is visible in the website code.
-          Do not use this panel for private or sensitive data.
+          Demo login only. The password is visible in this website's source code.
+          Do not use this as a secure production admin system.
         </div>
-
         <div class="field">
-          <label for="adminPassword">Demo Admin Password</label>
-          <input id="adminPassword" type="password"
-                 placeholder="Enter demo password">
+          <label for="adminPassword">Admin Password</label>
+          <input id="adminPassword" type="password" placeholder="Enter admin password" autocomplete="current-password">
         </div>
-
-        <button class="btn btn-primary" id="loginButton">Login</button>
-        <p class="muted">Demo password: <strong>admin123</strong></p>
+        <button class="btn btn-primary" id="loginButton" type="button">Login</button>
       </div>
 
       <div id="adminSection" hidden>
         <div class="notice">
-          Tools added here are stored in this browser only. They will not
-          automatically appear on other visitors' devices.
+          Custom tools are saved in this browser only. They are not shared with other visitors.
         </div>
 
         <form id="toolForm">
           <div class="field">
             <label for="toolName">Tool Name</label>
-            <input id="toolName" required maxlength="80"
-                   placeholder="Example: My AI Writer">
+            <input id="toolName" required maxlength="80" placeholder="Example: My AI Writer">
           </div>
-
           <div class="field">
-            <label for="toolUrl">Website URL (https://)</label>
-            <input id="toolUrl" type="url" required
-                   placeholder="https://example.com">
+            <label for="toolUrl">Website URL</label>
+            <input id="toolUrl" type="url" required placeholder="https://example.com">
           </div>
-
           <div class="field">
             <label for="toolCategory">Category</label>
             <select id="toolCategory" required></select>
           </div>
-
           <div class="field">
             <label for="toolIcon">Icon (emoji)</label>
             <input id="toolIcon" maxlength="8" value="✨">
           </div>
-
           <div class="field">
             <label for="toolDescription">Description</label>
-            <textarea id="toolDescription" required maxlength="250"
-              placeholder="What does this AI tool do?"></textarea>
+            <textarea id="toolDescription" required maxlength="250" placeholder="What does this tool do?"></textarea>
           </div>
-
           <button class="btn btn-primary" type="submit">Add AI Tool</button>
         </form>
 
         <div class="admin-list">
-          <h3>Manage Tools</h3>
+          <h3>Manage Custom Tools</h3>
           <div id="adminToolsList"></div>
         </div>
 
-        <button class="btn" id="logoutButton" style="margin-top:20px">
-          Logout
-        </button>
+        <button class="btn" id="logoutButton" type="button" style="margin-top:20px">Logout</button>
       </div>
     </div>
   </div>
 
   <script>
+    "use strict";
+
+    const ADMIN_PASSWORD = "jahid7788";
+    const STORAGE_KEY = "ai_hub_custom_tools_v2";
+
     const categories = [
-      "All Tools",
-      "Writing",
-      "Coding",
-      "Image Generation",
-      "Video",
-      "Productivity",
-      "Research",
-      "Education",
-      "Audio",
-      "Business"
+      "All Tools", "Writing", "Coding", "Image Generation", "Video",
+      "Productivity", "Research", "Education", "Audio", "Business"
     ];
 
     const starterTools = [
-      {
-        id: "chatgpt",
-        name: "ChatGPT",
-        url: "https://chatgpt.com/",
-        category: "Writing",
-        icon: "🤖",
-        description: "An AI assistant for writing, learning, ideas and everyday tasks."
-      },
-      {
-        id: "gemini",
-        name: "Google Gemini",
-        url: "https://gemini.google.com/",
-        category: "Writing",
-        icon: "✨",
-        description: "Google's AI assistant for questions, ideas and productivity."
-      },
-      {
-        id: "claude",
-        name: "Claude",
-        url: "https://claude.ai/",
-        category: "Writing",
-        icon: "🧠",
-        description: "An AI assistant for writing, analysis and problem solving."
-      },
-      {
-        id: "perplexity",
-        name: "Perplexity",
-        url: "https://www.perplexity.ai/",
-        category: "Research",
-        icon: "🔎",
-        description: "Explore questions and research topics with linked sources."
-      },
-      {
-        id: "copilot",
-        name: "Microsoft Copilot",
-        url: "https://copilot.microsoft.com/",
-        category: "Productivity",
-        icon: "💠",
-        description: "An AI assistant for ideas, answers and productivity."
-      },
-      {
-        id: "deepseek",
-        name: "DeepSeek",
-        url: "https://chat.deepseek.com/",
-        category: "Coding",
-        icon: "💻",
-        description: "AI assistance for reasoning, coding and general questions."
-      },
-      {
-        id: "huggingface",
-        name: "Hugging Face",
-        url: "https://huggingface.co/",
-        category: "Research",
-        icon: "🤗",
-        description: "Discover machine-learning models, datasets and AI demos."
-      },
-      {
-        id: "canva",
-        name: "Canva",
-        url: "https://www.canva.com/",
-        category: "Image Generation",
-        icon: "🎨",
-        description: "Create designs, presentations and visual content."
-      },
-      {
-        id: "adobe",
-        name: "Adobe Firefly",
-        url: "https://firefly.adobe.com/",
-        category: "Image Generation",
-        icon: "🖼️",
-        description: "Explore AI-powered image and creative design tools."
-      },
-      {
-        id: " leonardo",
-        name: "Leonardo AI",
-        url: "https://leonardo.ai/",
-        category: "Image Generation",
-        icon: "🌄",
-        description: "Create AI-generated artwork and visual assets."
-      },
-      {
-        id: "runway",
-        name: "Runway",
-        url: "https://runwayml.com/",
-        category: "Video",
-        icon: "🎬",
-        description: "Explore AI-powered video creation and editing."
-      },
-      {
-        id: "pika",
-        name: "Pika",
-        url: "https://pika.art/",
-        category: "Video",
-        icon: "📹",
-        description: "Create and experiment with AI-generated video."
-      },
-      {
-        id: "elevenlabs",
-        name: "ElevenLabs",
-        url: "https://elevenlabs.io/",
-        category: "Audio",
-        icon: "🎙️",
-        description: "AI tools for voice generation and audio production."
-      },
-      {
-        id: "suno",
-        name: "Suno",
-        url: "https://suno.com/",
-        category: "Audio",
-        icon: "🎵",
-        description: "Create music with AI-assisted tools."
-      },
-      {
-        id: "notion",
-        name: "Notion",
-        url: "https://www.notion.so/",
-        category: "Productivity",
-        icon: "📝",
-        description: "Organize notes, projects and knowledge in one workspace."
-      },
-      {
-        id: "khan",
-        name: "Khan Academy",
-        url: "https://www.khanacademy.org/",
-        category: "Education",
-        icon: "📚",
-        description: "Learn subjects through educational lessons and practice."
-      },
-      {
-        id: "grammarly",
-        name: "Grammarly",
-        url: "https://www.grammarly.com/",
-        category: "Writing",
-        icon: "✍️",
-        description: "Improve writing clarity, spelling and grammar."
-      },
-      {
-        id: "zapier",
-        name: "Zapier",
-        url: "https://zapier.com/",
-        category: "Business",
-        icon: "⚙️",
-        description: "Automate workflows between online applications."
-      }
+      {id:"chatgpt",name:"ChatGPT",url:"https://chatgpt.com/",category:"Writing",icon:"🤖",description:"An AI assistant for writing, learning, ideas and everyday tasks."},
+      {id:"gemini",name:"Google Gemini",url:"https://gemini.google.com/",category:"Writing",icon:"✨",description:"Google's AI assistant for questions, ideas and productivity."},
+      {id:"claude",name:"Claude",url:"https://claude.ai/",category:"Writing",icon:"🧠",description:"An AI assistant for writing, analysis and problem solving."},
+      {id:"perplexity",name:"Perplexity",url:"https://www.perplexity.ai/",category:"Research",icon:"🔎",description:"Explore questions and research topics with linked sources."},
+      {id:"copilot",name:"Microsoft Copilot",url:"https://copilot.microsoft.com/",category:"Productivity",icon:"💠",description:"An AI assistant for ideas, answers and productivity."},
+      {id:"deepseek",name:"DeepSeek",url:"https://chat.deepseek.com/",category:"Coding",icon:"💻",description:"AI assistance for reasoning, coding and general questions."},
+      {id:"huggingface",name:"Hugging Face",url:"https://huggingface.co/",category:"Research",icon:"🤗",description:"Discover machine-learning models, datasets and AI demos."},
+      {id:"canva",name:"Canva",url:"https://www.canva.com/",category:"Image Generation",icon:"🎨",description:"Create designs, presentations and visual content."},
+      {id:"firefly",name:"Adobe Firefly",url:"https://firefly.adobe.com/",category:"Image Generation",icon:"🖼️",description:"Explore AI-powered image and creative design tools."},
+      {id:"leonardo",name:"Leonardo AI",url:"https://leonardo.ai/",category:"Image Generation",icon:"🌄",description:"Create AI-generated artwork and visual assets."},
+      {id:"runway",name:"Runway",url:"https://runwayml.com/",category:"Video",icon:"🎬",description:"Explore AI-powered video creation and editing."},
+      {id:"pika",name:"Pika",url:"https://pika.art/",category:"Video",icon:"📹",description:"Create and experiment with AI-generated video."},
+      {id:"elevenlabs",name:"ElevenLabs",url:"https://elevenlabs.io/",category:"Audio",icon:"🎙️",description:"AI tools for voice generation and audio production."},
+      {id:"suno",name:"Suno",url:"https://suno.com/",category:"Audio",icon:"🎵",description:"Create music with AI-assisted tools."},
+      {id:"notion",name:"Notion",url:"https://www.notion.so/",category:"Productivity",icon:"📝",description:"Organize notes, projects and knowledge in one workspace."},
+      {id:"khan",name:"Khan Academy",url:"https://www.khanacademy.org/",category:"Education",icon:"📚",description:"Learn subjects through lessons and practice."},
+      {id:"grammarly",name:"Grammarly",url:"https://www.grammarly.com/",category:"Writing",icon:"✍️",description:"Improve writing clarity, spelling and grammar."},
+      {id:"zapier",name:"Zapier",url:"https://zapier.com/",category:"Business",icon:"⚙️",description:"Automate workflows between online applications."}
     ];
 
-    const STORAGE_KEY = "ai_hub_custom_tools_v1";
-    let selectedCategory = "All Tools";
-    let customTools = loadCustomTools();
-    let adminLoggedIn = false;
-
     const $ = id => document.getElementById(id);
+    let selectedCategory = "All Tools";
+    let adminLoggedIn = false;
+    let customTools = loadCustomTools();
 
     function loadCustomTools() {
       try {
-        const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-        return Array.isArray(data) ? data : [];
-      } catch {
+        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+        return Array.isArray(saved) ? saved : [];
+      } catch (error) {
         return [];
       }
     }
@@ -709,35 +545,36 @@
     function saveCustomTools() {
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(customTools));
-      } catch {
-        alert("Could not save. Your browser storage may be unavailable.");
+        return true;
+      } catch (error) {
+        alert("Could not save tools in this browser.");
+        return false;
       }
+    }
+
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>"']/g, character => ({
+        "&":"&amp;", "<":"&lt;", ">":"&gt;",
+        '"':"&quot;", "'":"&#39;"
+      })[character]);
     }
 
     function getAllTools() {
       return [...starterTools, ...customTools];
     }
 
-    function validExternalUrl(value) {
-      try {
-        const url = new URL(value);
-        return url.protocol === "https:" || url.protocol === "http:";
-      } catch {
-        return false;
-      }
-    }
-
     function renderCategories() {
       $("categories").innerHTML = categories.map(category => `
-        <button class="category ${selectedCategory === category ? "active" : ""}"
-          data-category="${category}">
-          ${category}
+        <button type="button"
+          class="category ${selectedCategory === category ? "active" : ""}"
+          data-category="${escapeHTML(category)}">
+          ${escapeHTML(category)}
         </button>
       `).join("");
 
       $("toolCategory").innerHTML = categories
         .filter(category => category !== "All Tools")
-        .map(category => `<option value="${category}">${category}</option>`)
+        .map(category => `<option value="${escapeHTML(category)}">${escapeHTML(category)}</option>`)
         .join("");
     }
 
@@ -775,46 +612,39 @@
           <a class="tool-link"
              href="${escapeHTML(tool.url)}"
              target="_blank"
-             rel="noopener noreferrer">
-             Visit Website ↗
-          </a>
+             rel="noopener noreferrer">Visit Website ↗</a>
         </article>
       `).join("");
     }
 
-    function escapeHTML(value) {
-      return String(value).replace(/[&<>"']/g, character => ({
-        "&": "&amp;",
-        "<": "&lt;",
-        ">": "&gt;",
-        '"': "&quot;",
-        "'": "&#39;"
-      })[character]);
-    }
-
     function renderAdminList() {
-      const list = $("adminToolsList");
-
       if (!customTools.length) {
-        list.innerHTML = '<p class="muted">No custom tools added yet.</p>';
+        $("adminToolsList").innerHTML =
+          '<p class="muted">No custom tools added yet.</p>';
         return;
       }
 
-      list.innerHTML = customTools.map(tool => `
+      $("adminToolsList").innerHTML = customTools.map(tool => `
         <div class="admin-item">
           <div>
             <strong>${escapeHTML(tool.name)}</strong><br>
             <small class="muted">${escapeHTML(tool.category)}</small>
           </div>
-          <button class="delete-btn" data-delete="${escapeHTML(tool.id)}">
-            Delete
-          </button>
+          <button type="button" class="delete-btn"
+            data-delete="${escapeHTML(tool.id)}">Delete</button>
         </div>
       `).join("");
     }
 
     function openAdmin() {
       $("adminModal").classList.add("open");
+
+      if (!adminLoggedIn) {
+        $("loginSection").hidden = false;
+        $("adminSection").hidden = true;
+        $("adminPassword").value = "";
+        setTimeout(() => $("adminPassword").focus(), 50);
+      }
     }
 
     function closeAdmin() {
@@ -839,16 +669,26 @@
       if (event.target === $("adminModal")) closeAdmin();
     });
 
-    $("loginButton").addEventListener("click", () => {
-      // Demo password only. Not secure for a public website.
-      if ($("adminPassword").value === "jahid7788") {
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") closeAdmin();
+    });
+
+    function login() {
+      if ($("adminPassword").value === ADMIN_PASSWORD) {
         adminLoggedIn = true;
         $("loginSection").hidden = true;
         $("adminSection").hidden = false;
         renderAdminList();
       } else {
-        alert("Incorrect demo password.");
+        alert("Incorrect password.");
+        $("adminPassword").select();
       }
+    }
+
+    $("loginButton").addEventListener("click", login);
+
+    $("adminPassword").addEventListener("keydown", event => {
+      if (event.key === "Enter") login();
     });
 
     $("logoutButton").addEventListener("click", () => {
@@ -872,8 +712,16 @@
       const icon = $("toolIcon").value.trim() || "✨";
       const description = $("toolDescription").value.trim();
 
-      if (!validExternalUrl(url)) {
-        alert("Enter a valid website URL beginning with https://");
+      let parsedURL;
+      try {
+        parsedURL = new URL(url);
+      } catch (error) {
+        alert("Please enter a valid website URL.");
+        return;
+      }
+
+      if (!["https:", "http:"].includes(parsedURL.protocol)) {
+        alert("Website URL must start with https:// or http://");
         return;
       }
 
@@ -885,20 +733,18 @@
       customTools.push({
         id: "custom-" + Date.now() + "-" +
           Math.random().toString(36).slice(2, 7),
-        name,
-        url,
-        category,
-        icon,
-        description
+        name, url: parsedURL.href, category, icon, description
       });
 
-      saveCustomTools();
+      if (!saveCustomTools()) {
+        customTools.pop();
+        return;
+      }
+
       $("toolForm").reset();
       $("toolIcon").value = "✨";
-
       renderTools();
       renderAdminList();
-
       alert("Tool added in this browser.");
     });
 
@@ -906,14 +752,16 @@
       const button = event.target.closest("[data-delete]");
       if (!button || !adminLoggedIn) return;
 
-      const id = button.dataset.delete;
+      if (!confirm("Delete this custom tool?")) return;
 
-      if (!confirm("Are you sure you want to delete this custom tool?")) {
+      const previousTools = customTools;
+      customTools = customTools.filter(tool => tool.id !== button.dataset.delete);
+
+      if (!saveCustomTools()) {
+        customTools = previousTools;
         return;
       }
 
-      customTools = customTools.filter(tool => tool.id !== id);
-      saveCustomTools();
       renderTools();
       renderAdminList();
     });
@@ -921,19 +769,18 @@
     renderCategories();
     renderTools();
 
-    // Google Translate language selector.
+    // Google Translate language selector
     function googleTranslateElementInit() {
+      if (!window.google || !google.translate) return;
+
       new google.translate.TranslateElement({
         pageLanguage: "en",
-        includedLanguages:
-          "ar,bn,zh-CN,zh-TW,cs,da,nl,en,fil,fi,fr,de,el,gu,hi,id,it,ja,kn,ko,ml,mr,ne,no,fa,pl,pt,pa,ro,ru,es,sv,ta,te,th,tr,uk,ur,vi",
+        includedLanguages: "ar,bn,zh-CN,zh-TW,cs,da,nl,en,fil,fi,fr,de,el,gu,hi,id,it,ja,kn,ko,ml,mr,ne,no,fa,pl,pt,pa,ro,ru,es,sv,ta,te,th,tr,uk,ur,vi",
         autoDisplay: false
       }, "google_translate_element");
     }
   </script>
 
-  <script
-    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-  </script>
+  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
