@@ -144,22 +144,32 @@ $("toolGrid").innerHTML=list.length?list.map(t=>`
 </article>`).join(""):`<div class="empty">${lang==="en"?"No tools found. Try another search or category.":"কোনো টুল পাওয়া যায়নি। অন্য শব্দ দিয়ে খুঁজুন।"}</div>`;
 $("toolGrid").querySelectorAll("[data-fav]").forEach(b=>b.onclick=()=>{const name=b.dataset.fav;favorites=favorites.includes(name)?favorites.filter(x=>x!==name):[...favorites,name];localStorage.setItem("aih-favorites",JSON.stringify(favorites));renderTools()});
 }
-function setLanguage(next){
-lang=next;document.documentElement.lang=lang;
-document.querySelectorAll("[data-en]").forEach(el=>el.textContent=lang==="en"?el.dataset.en:el.dataset.bn);
-document.querySelectorAll("[data-en-html]").forEach(el=>el.innerHTML=lang==="en"?el.dataset.enHtml:el.dataset.bnHtml);
-$("langBtn").textContent=lang==="en"?"বাংলা":"English";
-$("searchInput").placeholder=lang==="en"?"Search AI tools...":"AI টুল খুঁজুন...";
-$("sectionTitle").textContent=onlyFavorites?(lang==="en"?"Your favorite tools":"আপনার পছন্দের টুল"):(lang==="en"?"Explore AI tools":"AI টুল দেখুন");
-renderCategories();renderTools();
+
+function setLanguage(next) {
+  lang = next;
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll("[data-en]").forEach(function (el) {
+    el.textContent = lang === "en" ? el.dataset.en : el.dataset.bn;
+  });
+
+  document.querySelectorAll("[data-en-html]").forEach(function (el) {
+    el.innerHTML = lang === "en" ? el.dataset.enHtml : el.dataset.bnHtml;
+  });
+
+  $("langBtn").textContent = lang === "en" ? "বাংলা" : "English";
+  $("searchInput").placeholder =
+    lang === "en" ? "Search AI tools..." : "AI টুল খুঁজুন...";
+
+  $("sectionTitle").textContent = onlyFavorites
+    ? (lang === "en" ? "Your favorite tools" : "আপনার পছন্দের টুল")
+    : (lang === "en" ? "Explore AI tools" : "AI টুল দেখুন");
+
+  renderCategories();
+  renderTools();
 }
-$("searchInput").addEventListener("input",e=>{query=e.target.value;renderTools()});
-$("searchBtn").onclick=()=>{query=$("searchInput").value;renderTools()};
-$("allBtn").onclick=()=>{active="All";onlyFavorites=false;renderCategories();renderTools()};
-document.querySelector('a[href="#favorites"]').onclick=e=>{e.preventDefault();onlyFavorites=true;active="All";$("sectionTitle").textContent=lang==="en"?"Your favorite tools":"আপনার পছন্দের টুল";renderCategories();renderTools();$("tools").scrollIntoView({behavior:"smooth"})};
-$("langBtn").onclick=()=>setLanguage(lang==="en"?"bn":"en");
-$("year").textContent=new Date().getFullYear();
-renderCategories();renderTools();
-</script>
-</body>
-</html>
+
+$("langBtn").onclick = function () {
+  setLanguage(lang === "en" ? "bn" : "en");
+};
+
