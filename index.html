@@ -4,1130 +4,936 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>All-in-One AI Hub | Discover the Best AI Tools</title>
-  <meta name="description" content="Discover the best AI tools for writing, image generation, video editing, coding, productivity, education, business and more.">
-  <meta name="keywords" content="AI tools, free AI tools, AI directory, AI writing, AI image generator, AI video tools, AI coding tools">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#101828">
-  <link rel="canonical" href="https://all-in-one-ai-hub.vercel.app/">
-
-  <!-- Keep your existing Google verification code here -->
+  <meta name="description" content="Discover AI tools for writing, coding, images, video, productivity and more.">
   <meta name="google-site-verification" content="CkueB7Qgyj5rJ_k2UZdph4emXAP5P7zquvCNOxcEnKw">
 
-  
-<!-- Google AdSense -->
-<script async
-  src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4273007448994004"
-  crossorigin="anonymous"></script>
+  <title>All-in-One AI Hub | Discover AI Tools</title>
 
+  <!-- Google AdSense -->
+  <script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4273007448994004"
+    crossorigin="anonymous"></script>
 
   <style>
     :root {
-      --bg: #f5f7fb;
-      --card: #ffffff;
-      --text: #182230;
-      --muted: #667085;
-      --primary: #6558e8;
-      --border: #e5e7ef;
-      --header: #101828;
+      --bg: #f7f8fc;
+      --surface: #ffffff;
+      --text: #172033;
+      --muted: #68738a;
+      --primary: #635bff;
+      --border: #e7eaf2;
+      --shadow: 0 8px 28px rgba(29, 39, 72, .07);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; }
 
     body {
+      margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
-    button, input, select {
+    button, input, select, textarea {
       font: inherit;
     }
 
-    .header {
-      background: var(--header);
-      color: white;
-      padding: 16px 5%;
+    button { cursor: pointer; }
+
+    .topbar {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-    }
-
-    .logo span {
-      color: #a99cff;
-    }
-
-    .nav {
-      display: flex;
-      gap: 20px;
       align-items: center;
-      flex-wrap: wrap;
+      gap: 14px;
+      padding: 16px 5%;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
-    .nav a {
-      color: #e4e7ec;
-      font-size: 14px;
+    .brand {
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--primary);
+      white-space: nowrap;
     }
 
-    .nav a:hover {
-      color: #c4baff;
+    .header-actions {
+      display: flex;
+      gap: 9px;
+      align-items: center;
+    }
+
+    .btn, .language-select {
+      border: 1px solid var(--border);
+      background: white;
+      border-radius: 10px;
+      padding: 10px 13px;
+      color: var(--text);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
     }
 
     .hero {
-      background: linear-gradient(135deg, #101828, #35256f 65%, #6558e8);
-      color: white;
-      padding: 70px 20px 62px;
+      padding: 65px 18px 38px;
       text-align: center;
+      background: linear-gradient(135deg, #eeedff, #f9faff, #e8f7ff);
     }
 
-    .tag {
+    .eyebrow {
       display: inline-block;
-      border: 1px solid #ffffff40;
-      background: #ffffff12;
+      padding: 7px 12px;
       border-radius: 30px;
-      padding: 6px 14px;
-      font-size: 12px;
-      margin-bottom: 18px;
+      background: white;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
     }
 
     .hero h1 {
-      font-size: clamp(32px, 5vw, 54px);
-      line-height: 1.15;
+      font-size: clamp(30px, 5vw, 54px);
+      margin: 20px auto 14px;
       max-width: 800px;
-      margin: 0 auto 18px;
-    }
-
-    .hero h1 span {
-      color: #c7beff;
+      line-height: 1.12;
     }
 
     .hero p {
-      max-width: 650px;
-      margin: 0 auto 28px;
-      color: #e0e4ff;
-      font-size: 16px;
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 25px;
+      line-height: 1.7;
     }
 
-    .search-wrap {
+    .search-box {
       max-width: 650px;
-      margin: auto;
       display: flex;
-      gap: 8px;
+      gap: 10px;
+      margin: auto;
       background: white;
+      border: 1px solid var(--border);
+      border-radius: 14px;
       padding: 7px;
-      border-radius: 12px;
+      box-shadow: var(--shadow);
     }
 
-    .search-wrap input {
-      flex: 1;
+    .search-box input {
       min-width: 0;
-      border: none;
-      outline: none;
+      flex: 1;
       padding: 12px;
-      color: #182230;
+      border: 0;
+      outline: 0;
       background: transparent;
     }
 
-    .search-wrap button,
-    .primary-btn {
-      border: none;
-      border-radius: 8px;
-      background: var(--primary);
-      color: white;
-      padding: 12px 20px;
-      font-weight: 700;
-      cursor: pointer;
-    }
-
-    .search-wrap button:hover,
-    .primary-btn:hover {
-      background: #5145cd;
-    }
-
-    .stats {
-      display: flex;
-      justify-content: center;
-      gap: 35px;
-      margin-top: 28px;
-      color: #e4e7ff;
-      font-size: 13px;
-      flex-wrap: wrap;
-    }
-
-    .container {
-      width: min(1180px, 92%);
-      margin: 0 auto;
-    }
-
-    .section {
-      padding: 48px 0;
+    main {
+      max-width: 1250px;
+      margin: auto;
+      padding: 35px 20px 60px;
     }
 
     .section-heading {
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: end;
-      gap: 15px;
-      margin-bottom: 22px;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .section-heading h2 { margin: 0; font-size: 25px; }
+
+    .muted { color: var(--muted); }
+
+    .categories {
+      display: flex;
       flex-wrap: wrap;
-    }
-
-    .section-heading h2 {
-      font-size: clamp(23px, 3vw, 30px);
-      line-height: 1.3;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      font-size: 14px;
-      margin-top: 5px;
-    }
-
-    .category-grid {
-      display: grid;
-      grid-template-columns: repeat(6, minmax(0, 1fr));
-      gap: 14px;
+      gap: 9px;
+      margin-bottom: 32px;
     }
 
     .category {
+      padding: 10px 15px;
       border: 1px solid var(--border);
-      background: var(--card);
-      border-radius: 12px;
-      padding: 20px 10px;
-      text-align: center;
-      cursor: pointer;
-      transition: .2s;
-    }
-
-    .category:hover,
-    .category.active {
-      border-color: var(--primary);
-      transform: translateY(-2px);
-      box-shadow: 0 5px 20px #6558e815;
-    }
-
-    .category .emoji {
-      font-size: 28px;
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .category strong {
-      display: block;
-      font-size: 13px;
-    }
-
-    .category small {
-      color: var(--muted);
-      font-size: 11px;
-    }
-
-    .toolbar {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 22px;
-    }
-
-    .toolbar select {
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 10px 12px;
       background: white;
-      color: var(--text);
+      border-radius: 30px;
+      color: #414c63;
     }
 
-    .tool-grid {
+    .category.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .tools-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 18px;
     }
 
     .tool-card {
-      background: var(--card);
+      background: white;
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 17px;
       padding: 20px;
       display: flex;
       flex-direction: column;
-      min-width: 0;
-      transition: .2s;
+      min-height: 235px;
+      transition: transform .2s, box-shadow .2s;
     }
 
     .tool-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 28px #1018280c;
-    }
-
-    .tool-top {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
     }
 
     .tool-icon {
-      width: 48px;
-      height: 48px;
-      flex-shrink: 0;
+      width: 49px;
+      height: 49px;
       display: grid;
       place-items: center;
-      background: #efedff;
-      border-radius: 12px;
+      background: #f0efff;
+      border-radius: 14px;
       font-size: 25px;
+      margin-bottom: 15px;
     }
 
-    .tool-card h3 {
-      font-size: 17px;
-      overflow-wrap: anywhere;
-    }
+    .tool-card h3 { margin: 0 0 9px; font-size: 18px; }
 
-    .tool-card .type {
-      font-size: 12px;
+    .tool-card p {
       color: var(--muted);
-    }
-
-    .tool-card .description {
-      color: #475467;
+      line-height: 1.55;
       font-size: 14px;
-      margin-bottom: 16px;
       flex: 1;
+      margin: 0 0 17px;
     }
 
-    .tool-tags {
+    .tool-meta {
       display: flex;
-      gap: 7px;
-      flex-wrap: wrap;
-      margin-bottom: 16px;
-    }
-
-    .tool-tags span {
-      border-radius: 5px;
-      background: #f0f2f7;
-      color: #475467;
-      padding: 4px 8px;
-      font-size: 11px;
-    }
-
-    .tool-actions {
-      display: flex;
-      gap: 8px;
+      justify-content: space-between;
       align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      margin-bottom: 14px;
     }
 
-    .visit-btn {
-      background: var(--primary);
-      color: white;
-      border-radius: 8px;
+    .tag {
+      background: #f0efff;
+      color: #554ce0;
+      padding: 5px 8px;
+      border-radius: 7px;
+    }
+
+    .tool-link {
+      display: block;
       text-align: center;
-      padding: 10px;
-      flex: 1;
-      font-size: 13px;
+      padding: 11px;
+      border-radius: 9px;
+      background: #f1f2ff;
+      color: var(--primary);
       font-weight: 700;
     }
 
-    .visit-btn:hover {
-      background: #5145cd;
-    }
-
-    .save-btn {
-      border: 1px solid var(--border);
-      background: white;
-      border-radius: 8px;
-      padding: 9px 12px;
-      cursor: pointer;
-      color: #475467;
-    }
-
-    .save-btn.saved {
-      background: #efedff;
-      border-color: var(--primary);
-      color: var(--primary);
-    }
-
-    .no-results {
+    .empty {
       grid-column: 1 / -1;
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 40px 20px;
+      padding: 45px 10px;
       text-align: center;
       color: var(--muted);
     }
 
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .info-card {
-      background: white;
-      border: 1px solid var(--border);
+    .ad-space {
+      margin: 30px 0;
+      padding: 18px;
+      border: 1px dashed #cbd1df;
       border-radius: 12px;
-      padding: 24px;
-    }
-
-    .info-card .emoji {
-      font-size: 28px;
-    }
-
-    .info-card h3 {
-      margin: 12px 0 8px;
-      font-size: 18px;
-    }
-
-    .info-card p {
       color: var(--muted);
-      font-size: 14px;
+      text-align: center;
+      font-size: 12px;
     }
 
-    .about {
+    footer {
       background: white;
       border-top: 1px solid var(--border);
+      padding: 28px 18px;
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    footer a { color: var(--primary); }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(14, 20, 40, .6);
+      padding: 18px;
+      overflow-y: auto;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.open { display: flex; }
+
+    .modal-box {
+      width: 100%;
+      max-width: 650px;
+      background: white;
+      padding: 25px;
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      max-height: 92vh;
+      overflow-y: auto;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .modal-header h2 { margin: 0 0 18px; }
+
+    .close-btn {
+      border: 0;
+      background: #f1f2f7;
+      border-radius: 9px;
+      padding: 8px 12px;
+    }
+
+    .field { margin-bottom: 14px; }
+
+    .field label {
+      display: block;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 7px;
+    }
+
+    .field input, .field select, .field textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #dce0eb;
+      border-radius: 9px;
+      outline-color: var(--primary);
+      background: white;
+    }
+
+    .field textarea { min-height: 75px; resize: vertical; }
+
+    .admin-list { margin-top: 25px; }
+
+    .admin-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 0;
       border-bottom: 1px solid var(--border);
     }
 
-    .about p {
-      max-width: 850px;
-      color: #475467;
-      margin-top: 12px;
-    }
-
-    .footer {
-      background: #101828;
-      color: #e4e7ec;
-      padding: 35px 5%;
-      text-align: center;
-    }
-
-    .footer p {
-      color: #98a2b3;
-      font-size: 13px;
-      margin-top: 8px;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-      flex-wrap: wrap;
-      margin-top: 15px;
-      font-size: 13px;
-    }
-
-    .footer-links a:hover {
-      color: #c7beff;
+    .delete-btn {
+      border: 0;
+      background: #fff0f0;
+      color: #c62828;
+      padding: 8px 10px;
+      border-radius: 8px;
     }
 
     .notice {
-      background: #fff8e7;
-      border: 1px solid #f3dfad;
-      color: #7a5810;
-      padding: 12px 15px;
-      border-radius: 8px;
-      font-size: 12px;
-      margin-top: 20px;
+      background: #fff8df;
+      border: 1px solid #f0df9c;
+      padding: 12px;
+      border-radius: 10px;
+      color: #715b17;
+      line-height: 1.5;
+      font-size: 13px;
+      margin-bottom: 18px;
     }
 
-    @media (max-width: 900px) {
-      .category-grid {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-      }
-
-      .tool-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .info-grid {
-        grid-template-columns: 1fr;
-      }
+    #google_translate_element {
+      display: inline-block;
+      max-width: 150px;
+      overflow: hidden;
     }
 
-    @media (max-width: 600px) {
-      .header {
-        padding: 14px 4%;
-      }
+    .goog-te-gadget { font-size: 0 !important; }
+    .goog-te-gadget select {
+      max-width: 145px;
+      padding: 9px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: white;
+      color: var(--text);
+    }
 
-      .logo {
-        font-size: 19px;
-      }
+    body .goog-te-banner-frame { display: none !important; }
+    body { top: 0 !important; }
 
-      .nav {
-        gap: 12px;
-      }
+    @media (max-width: 1000px) {
+      .tools-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
 
-      .nav a {
-        font-size: 12px;
-      }
+    @media (max-width: 700px) {
+      .topbar { padding: 12px 4%; flex-wrap: wrap; }
+      .brand { font-size: 18px; }
+      .header-actions { flex-wrap: wrap; }
+      .hero { padding-top: 45px; }
+      .tools-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      main { padding: 28px 13px 45px; }
+      .tool-card { padding: 15px; min-height: 240px; }
+      .tool-card h3 { font-size: 16px; }
+      .tool-card p { font-size: 13px; }
+      .section-heading h2 { font-size: 21px; }
+    }
 
-      .hero {
-        padding: 48px 15px;
-      }
-
-      .hero p {
-        font-size: 14px;
-      }
-
-      .search-wrap {
-        flex-direction: column;
-      }
-
-      .search-wrap button {
-        width: 100%;
-      }
-
-      .stats {
-        gap: 12px 20px;
-      }
-
-      .container {
-        width: 92%;
-      }
-
-      .section {
-        padding: 35px 0;
-      }
-
-      .category-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
-      }
-
-      .category {
-        padding: 16px 8px;
-      }
-
-      .tool-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .tool-card {
-        padding: 17px;
-      }
+    @media (max-width: 390px) {
+      .tools-grid { grid-template-columns: 1fr; }
+      .header-actions { width: 100%; justify-content: space-between; }
     }
   </style>
 </head>
 
 <body>
-  <header class="header">
-    <a href="#" class="logo">AI <span>Hub</span></a>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="All-in-One AI Hub home">✦ AI Hub</a>
 
-    <nav class="nav" aria-label="Main navigation">
-      <a href="#categories">Categories</a>
-      <a href="#tools">Explore Tools</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <div class="header-actions">
+      <div id="google_translate_element" aria-label="Select language"></div>
+      <button class="btn btn-primary" id="adminOpen">Admin Login</button>
+    </div>
   </header>
 
+  <section class="hero">
+    <span class="eyebrow">✦ Your AI discovery platform</span>
+    <h1>Discover the Best AI Tools in One Place</h1>
+    <p>Explore AI tools for writing, coding, images, video, learning and productivity.</p>
+
+    <div class="search-box">
+      <input id="searchInput" type="search"
+        placeholder="Search AI tools or categories..."
+        aria-label="Search AI tools">
+      <button class="btn btn-primary" id="searchButton">Search</button>
+    </div>
+  </section>
+
   <main>
-    <section class="hero">
-      <span class="tag">✨ Your AI Discovery Platform</span>
-      <h1>Discover the Best AI Tools <span>in One Place</span></h1>
-      <p>
-        Find useful AI tools for writing, design, coding, business,
-        productivity, education and more.
-      </p>
+    <div class="ad-space">Advertisement</div>
 
-      <form class="search-wrap" id="searchForm">
-        <input
-          id="searchInput"
-          type="search"
-          placeholder="Search AI tools, e.g. writing, image, coding..."
-          aria-label="Search AI tools"
-        >
-        <button type="submit">Search Tools</button>
-      </form>
-
-      <div class="stats">
-        <span>🚀 Explore AI tools</span>
-        <span>🧠 Multiple categories</span>
-        <span>🌐 Easy discovery</span>
-      </div>
-    </section>
-
-    <section class="section container" id="categories">
-      <div class="section-heading">
-        <div>
-          <h2>Explore Categories</h2>
-          <p>Choose a category to discover relevant AI tools.</p>
-        </div>
-      </div>
-
-      <div class="category-grid" id="categoryGrid">
-        <button class="category active" data-category="All">
-          <span class="emoji">🌟</span>
-          <strong>All Tools</strong>
-          <small>Explore everything</small>
-        </button>
-        <button class="category" data-category="Writing">
-          <span class="emoji">✍️</span>
-          <strong>Writing</strong>
-          <small>Text and content</small>
-        </button>
-        <button class="category" data-category="Image">
-          <span class="emoji">🎨</span>
-          <strong>Image & Design</strong>
-          <small>Creative visuals</small>
-        </button>
-        <button class="category" data-category="Video">
-          <span class="emoji">🎬</span>
-          <strong>Video</strong>
-          <small>Video creation</small>
-        </button>
-        <button class="category" data-category="Coding">
-          <span class="emoji">💻</span>
-          <strong>Coding</strong>
-          <small>Developer tools</small>
-        </button>
-        <button class="category" data-category="Productivity">
-          <span class="emoji">⚡</span>
-          <strong>Productivity</strong>
-          <small>Work smarter</small>
-        </button>
-        <button class="category" data-category="Research">
-          <span class="emoji">🔎</span>
-          <strong>Research</strong>
-          <small>Search and learn</small>
-        </button>
-        <button class="category" data-category="Audio">
-          <span class="emoji">🎧</span>
-          <strong>Audio & Voice</strong>
-          <small>Speech and sound</small>
-        </button>
-        <button class="category" data-category="Business">
-          <span class="emoji">📈</span>
-          <strong>Business</strong>
-          <small>Business solutions</small>
-        </button>
-        <button class="category" data-category="Education">
-          <span class="emoji">📚</span>
-          <strong>Education</strong>
-          <small>Study and learning</small>
-        </button>
-        <button class="category" data-category="Chatbots">
-          <span class="emoji">💬</span>
-          <strong>Chatbots</strong>
-          <small>AI assistants</small>
-        </button>
-        <button class="category" data-category="Marketing">
-          <span class="emoji">📣</span>
-          <strong>Marketing</strong>
-          <small>Grow your brand</small>
-        </button>
-      </div>
-    </section>
-
-    <section class="section container" id="tools">
-      <div class="section-heading">
-        <div>
-          <h2 id="toolsHeading">Popular AI Tools</h2>
-          <p>Explore these tools on their official websites.</p>
-        </div>
-      </div>
-
-      <div class="toolbar">
-        <select id="categoryFilter" aria-label="Filter by category">
-          <option value="All">All Categories</option>
-          <option value="Writing">Writing</option>
-          <option value="Image">Image & Design</option>
-          <option value="Video">Video</option>
-          <option value="Coding">Coding</option>
-          <option value="Productivity">Productivity</option>
-          <option value="Research">Research</option>
-          <option value="Audio">Audio & Voice</option>
-          <option value="Business">Business</option>
-          <option value="Education">Education</option>
-          <option value="Chatbots">Chatbots</option>
-          <option value="Marketing">Marketing</option>
-        </select>
-
-        <select id="sortFilter" aria-label="Sort tools">
-          <option value="default">Default Order</option>
-          <option value="az">Name: A to Z</option>
-        </select>
-
-        <select id="savedFilter" aria-label="Saved tools filter">
-          <option value="all">All Tools</option>
-          <option value="saved">Saved Tools</option>
-        </select>
-      </div>
-
-      <div class="tool-grid" id="toolGrid" aria-live="polite"></div>
-
-      <p class="notice">
-        Note: This directory currently contains sample listings. Tool names
-        and descriptions are for discovery; pricing, free plans and features
-        may change. Check each official website before use.
-      </p>
-    </section>
-
-    <section class="section container">
-      <div class="section-heading">
-        <div>
-          <h2>Why Use AI Hub?</h2>
-          <p>A simple place to start discovering AI-powered services.</p>
-        </div>
-      </div>
-
-      <div class="info-grid">
-        <article class="info-card">
-          <span class="emoji">🔍</span>
-          <h3>Easy Discovery</h3>
-          <p>Search by tool name or explore categories to find a service for your needs.</p>
-        </article>
-
-        <article class="info-card">
-          <span class="emoji">🧩</span>
-          <h3>Multiple Categories</h3>
-          <p>Explore writing, design, coding, research, education and other AI use cases.</p>
-        </article>
-
-        <article class="info-card">
-          <span class="emoji">🔖</span>
-          <h3>Save Favorites</h3>
-          <p>Save tools in this browser and quickly revisit your favorite listings.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="section about" id="about">
-      <div class="container">
-        <h2>About All-in-One AI Hub</h2>
-        <p>
-          All-in-One AI Hub is an AI tools directory designed to help users
-          discover digital tools for everyday work, creativity, learning and
-          business. We aim to make exploring AI services easier by organizing
-          listings into useful categories.
-        </p>
-        <p>
-          This directory is independent. Mention of a service does not mean
-          that the service endorses or sponsors this website. Please visit
-          official provider websites for current terms, pricing and privacy
-          information.
-        </p>
-      </div>
-    </section>
-
-    <section class="section container" id="contact">
-      <h2>Contact</h2>
-      <p style="color:#667085; margin-top:10px;">
-        Questions, corrections or suggestions? Add your real contact email
-        here before publishing this section.
-      </p>
-      <!-- Replace this example with your real contact email -->
-      <p style="margin-top:8px;">
-        Email: <a href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a>
-      </p>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <a href="#" class="logo">AI <span>Hub</span></a>
-    <p>Discover useful AI tools for your everyday work.</p>
-
-    <div class="footer-links">
-      <a href="#about">About Us</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms of Use</a>
-      <a href="#contact">Contact</a>
+    <div class="section-heading">
+      <h2>Explore Categories</h2>
     </div>
 
-    <p>© <span id="year"></span> All-in-One AI Hub. All rights reserved.</p>
+    <div class="categories" id="categories"></div>
+
+    <div class="section-heading">
+      <h2>AI Tools Directory</h2>
+      <span class="muted" id="toolCount"></span>
+    </div>
+
+    <div class="tools-grid" id="toolsGrid"></div>
+  </main>
+
+  <footer>
+    <strong>✦ All-in-One AI Hub</strong>
+    <p>Discover useful AI tools for your everyday work.</p>
+    <p>
+      <a href="mailto:contact@example.com">Contact</a> ·
+      <a href="#privacy">Privacy Policy</a> ·
+      <a href="#about">About Us</a>
+    </p>
+    <small>Some tools are provided by third parties. Please review their terms before use.</small>
   </footer>
 
+  <!-- Admin panel -->
+  <div class="modal" id="adminModal" role="dialog"
+       aria-modal="true" aria-labelledby="adminTitle">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2 id="adminTitle">Admin Panel</h2>
+        <button class="close-btn" id="adminClose" aria-label="Close">✕</button>
+      </div>
+
+      <div id="loginSection">
+        <div class="notice">
+          Demo mode only: this password is visible in the website code.
+          Do not use this panel for private or sensitive data.
+        </div>
+
+        <div class="field">
+          <label for="adminPassword">Demo Admin Password</label>
+          <input id="adminPassword" type="password"
+                 placeholder="Enter demo password">
+        </div>
+
+        <button class="btn btn-primary" id="loginButton">Login</button>
+        <p class="muted">Demo password: <strong>admin123</strong></p>
+      </div>
+
+      <div id="adminSection" hidden>
+        <div class="notice">
+          Tools added here are stored in this browser only. They will not
+          automatically appear on other visitors' devices.
+        </div>
+
+        <form id="toolForm">
+          <div class="field">
+            <label for="toolName">Tool Name</label>
+            <input id="toolName" required maxlength="80"
+                   placeholder="Example: My AI Writer">
+          </div>
+
+          <div class="field">
+            <label for="toolUrl">Website URL (https://)</label>
+            <input id="toolUrl" type="url" required
+                   placeholder="https://example.com">
+          </div>
+
+          <div class="field">
+            <label for="toolCategory">Category</label>
+            <select id="toolCategory" required></select>
+          </div>
+
+          <div class="field">
+            <label for="toolIcon">Icon (emoji)</label>
+            <input id="toolIcon" maxlength="8" value="✨">
+          </div>
+
+          <div class="field">
+            <label for="toolDescription">Description</label>
+            <textarea id="toolDescription" required maxlength="250"
+              placeholder="What does this AI tool do?"></textarea>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Add AI Tool</button>
+        </form>
+
+        <div class="admin-list">
+          <h3>Manage Tools</h3>
+          <div id="adminToolsList"></div>
+        </div>
+
+        <button class="btn" id="logoutButton" style="margin-top:20px">
+          Logout
+        </button>
+      </div>
+    </div>
+  </div>
+
   <script>
-    const tools = [
+    const categories = [
+      "All Tools",
+      "Writing",
+      "Coding",
+      "Image Generation",
+      "Video",
+      "Productivity",
+      "Research",
+      "Education",
+      "Audio",
+      "Business"
+    ];
+
+    const starterTools = [
       {
+        id: "chatgpt",
         name: "ChatGPT",
-        category: "Chatbots",
-        icon: "💬",
-        description: "An AI assistant for writing, learning, brainstorming and problem-solving.",
-        tags: ["Assistant", "Writing"],
-        url: "https://chatgpt.com/"
+        url: "https://chatgpt.com/",
+        category: "Writing",
+        icon: "🤖",
+        description: "An AI assistant for writing, learning, ideas and everyday tasks."
       },
       {
+        id: "gemini",
         name: "Google Gemini",
-        category: "Chatbots",
+        url: "https://gemini.google.com/",
+        category: "Writing",
         icon: "✨",
-        description: "Google's AI assistant for questions, ideas and everyday tasks.",
-        tags: ["Assistant", "Research"],
-        url: "https://gemini.google.com/"
+        description: "Google's AI assistant for questions, ideas and productivity."
       },
       {
+        id: "claude",
         name: "Claude",
+        url: "https://claude.ai/",
         category: "Writing",
         icon: "🧠",
-        description: "An AI assistant useful for writing, analysis and working with documents.",
-        tags: ["Writing", "Analysis"],
-        url: "https://claude.ai/"
+        description: "An AI assistant for writing, analysis and problem solving."
       },
       {
-        name: "Grammarly",
-        category: "Writing",
-        icon: "✍️",
-        description: "Writing assistance for grammar, clarity and communication.",
-        tags: ["Grammar", "Editing"],
-        url: "https://www.grammarly.com/"
-      },
-      {
-        name: "DeepL",
-        category: "Writing",
-        icon: "🌐",
-        description: "Translation and writing tools for multilingual communication.",
-        tags: ["Translation", "Language"],
-        url: "https://www.deepl.com/"
-      },
-      {
-        name: "Canva",
-        category: "Image",
-        icon: "🎨",
-        description: "A design platform with creative tools for graphics and presentations.",
-        tags: ["Design", "Graphics"],
-        url: "https://www.canva.com/"
-      },
-      {
-        name: "Adobe Firefly",
-        category: "Image",
-        icon: "🖼️",
-        description: "Creative AI tools for generating and editing visual content.",
-        tags: ["Images", "Design"],
-        url: "https://firefly.adobe.com/"
-      },
-      {
-        name: "Leonardo AI",
-        category: "Image",
-        icon: "🪄",
-        description: "AI-powered image generation and visual creation tools.",
-        tags: ["Image Generation", "Art"],
-        url: "https://leonardo.ai/"
-      },
-      {
-        name: "Ideogram",
-        category: "Image",
-        icon: "🌈",
-        description: "A visual generation platform for creative image concepts and designs.",
-        tags: ["Images", "Creative"],
-        url: "https://ideogram.ai/"
-      },
-      {
-        name: "Runway",
-        category: "Video",
-        icon: "🎬",
-        description: "AI-powered tools for video creation and creative production.",
-        tags: ["Video", "Creative"],
-        url: "https://runwayml.com/"
-      },
-      {
-        name: "Pika",
-        category: "Video",
-        icon: "📹",
-        description: "Tools for creating and transforming videos with AI.",
-        tags: ["Video", "Generation"],
-        url: "https://pika.art/"
-      },
-      {
-        name: "CapCut",
-        category: "Video",
-        icon: "✂️",
-        description: "A video editor with creative editing features and AI-assisted tools.",
-        tags: ["Editing", "Social Media"],
-        url: "https://www.capcut.com/"
-      },
-      {
-        name: "GitHub Copilot",
-        category: "Coding",
-        icon: "💻",
-        description: "AI coding assistance integrated into supported developer workflows.",
-        tags: ["Code", "Development"],
-        url: "https://github.com/features/copilot"
-      },
-      {
-        name: "Cursor",
-        category: "Coding",
-        icon: "⌨️",
-        description: "A code editor designed to support AI-assisted software development.",
-        tags: ["Code Editor", "Development"],
-        url: "https://cursor.com/"
-      },
-      {
-        name: "Replit",
-        category: "Coding",
-        icon: "🧑‍💻",
-        description: "An online development environment with tools for building applications.",
-        tags: ["Coding", "Apps"],
-        url: "https://replit.com/"
-      },
-      {
+        id: "perplexity",
         name: "Perplexity",
+        url: "https://www.perplexity.ai/",
         category: "Research",
         icon: "🔎",
-        description: "An AI-powered answer and research tool that provides source links.",
-        tags: ["Research", "Search"],
-        url: "https://www.perplexity.ai/"
+        description: "Explore questions and research topics with linked sources."
       },
       {
-        name: "NotebookLM",
+        id: "copilot",
+        name: "Microsoft Copilot",
+        url: "https://copilot.microsoft.com/",
+        category: "Productivity",
+        icon: "💠",
+        description: "An AI assistant for ideas, answers and productivity."
+      },
+      {
+        id: "deepseek",
+        name: "DeepSeek",
+        url: "https://chat.deepseek.com/",
+        category: "Coding",
+        icon: "💻",
+        description: "AI assistance for reasoning, coding and general questions."
+      },
+      {
+        id: "huggingface",
+        name: "Hugging Face",
+        url: "https://huggingface.co/",
         category: "Research",
-        icon: "📓",
-        description: "A research assistant for exploring and summarizing your sources.",
-        tags: ["Documents", "Research"],
-        url: "https://notebooklm.google.com/"
+        icon: "🤗",
+        description: "Discover machine-learning models, datasets and AI demos."
       },
       {
+        id: "canva",
+        name: "Canva",
+        url: "https://www.canva.com/",
+        category: "Image Generation",
+        icon: "🎨",
+        description: "Create designs, presentations and visual content."
+      },
+      {
+        id: "adobe",
+        name: "Adobe Firefly",
+        url: "https://firefly.adobe.com/",
+        category: "Image Generation",
+        icon: "🖼️",
+        description: "Explore AI-powered image and creative design tools."
+      },
+      {
+        id: " leonardo",
+        name: "Leonardo AI",
+        url: "https://leonardo.ai/",
+        category: "Image Generation",
+        icon: "🌄",
+        description: "Create AI-generated artwork and visual assets."
+      },
+      {
+        id: "runway",
+        name: "Runway",
+        url: "https://runwayml.com/",
+        category: "Video",
+        icon: "🎬",
+        description: "Explore AI-powered video creation and editing."
+      },
+      {
+        id: "pika",
+        name: "Pika",
+        url: "https://pika.art/",
+        category: "Video",
+        icon: "📹",
+        description: "Create and experiment with AI-generated video."
+      },
+      {
+        id: "elevenlabs",
         name: "ElevenLabs",
+        url: "https://elevenlabs.io/",
         category: "Audio",
         icon: "🎙️",
-        description: "AI voice and audio tools, including text-to-speech features.",
-        tags: ["Voice", "Audio"],
-        url: "https://elevenlabs.io/"
+        description: "AI tools for voice generation and audio production."
       },
       {
+        id: "suno",
         name: "Suno",
+        url: "https://suno.com/",
         category: "Audio",
         icon: "🎵",
-        description: "A platform for creating music with AI-powered features.",
-        tags: ["Music", "Audio"],
-        url: "https://suno.com/"
+        description: "Create music with AI-assisted tools."
       },
       {
+        id: "notion",
         name: "Notion",
+        url: "https://www.notion.so/",
         category: "Productivity",
-        icon: "🗂️",
-        description: "A workspace for notes, documents, projects and team collaboration.",
-        tags: ["Workspace", "Notes"],
-        url: "https://www.notion.so/"
+        icon: "📝",
+        description: "Organize notes, projects and knowledge in one workspace."
       },
       {
-        name: "Zapier",
-        category: "Productivity",
-        icon: "⚡",
-        description: "Automation tools that connect supported apps and workflows.",
-        tags: ["Automation", "Workflow"],
-        url: "https://zapier.com/"
-      },
-      {
-        name: "HubSpot",
-        category: "Business",
-        icon: "📊",
-        description: "Business software for marketing, sales, customer service and CRM.",
-        tags: ["Business", "CRM"],
-        url: "https://www.hubspot.com/"
-      },
-      {
-        name: "Jasper",
-        category: "Marketing",
-        icon: "📣",
-        description: "AI-powered content and marketing workflow tools for businesses.",
-        tags: ["Marketing", "Content"],
-        url: "https://www.jasper.ai/"
-      },
-      {
+        id: "khan",
         name: "Khan Academy",
+        url: "https://www.khanacademy.org/",
         category: "Education",
         icon: "📚",
-        description: "Educational resources and learning tools for a range of subjects.",
-        tags: ["Learning", "Study"],
-        url: "https://www.khanacademy.org/"
+        description: "Learn subjects through educational lessons and practice."
       },
       {
-        name: "Coursera",
-        category: "Education",
-        icon: "🎓",
-        description: "Online courses and learning programs from educational institutions and companies.",
-        tags: ["Courses", "Learning"],
-        url: "https://www.coursera.org/"
+        id: "grammarly",
+        name: "Grammarly",
+        url: "https://www.grammarly.com/",
+        category: "Writing",
+        icon: "✍️",
+        description: "Improve writing clarity, spelling and grammar."
+      },
+      {
+        id: "zapier",
+        name: "Zapier",
+        url: "https://zapier.com/",
+        category: "Business",
+        icon: "⚙️",
+        description: "Automate workflows between online applications."
       }
     ];
 
-    const toolGrid = document.getElementById("toolGrid");
-    const searchInput = document.getElementById("searchInput");
-    const categoryFilter = document.getElementById("categoryFilter");
-    const sortFilter = document.getElementById("sortFilter");
-    const savedFilter = document.getElementById("savedFilter");
-    const toolsHeading = document.getElementById("toolsHeading");
+    const STORAGE_KEY = "ai_hub_custom_tools_v1";
+    let selectedCategory = "All Tools";
+    let customTools = loadCustomTools();
+    let adminLoggedIn = false;
 
-    let selectedCategory = "All";
-    let searchTerm = "";
+    const $ = id => document.getElementById(id);
 
-    let savedTools = new Set();
+    function loadCustomTools() {
+      try {
+        const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+        return Array.isArray(data) ? data : [];
+      } catch {
+        return [];
+      }
+    }
 
-    try {
-      savedTools = new Set(
-        JSON.parse(localStorage.getItem("aiHubSavedTools") || "[]")
-      );
-    } catch (error) {
-      savedTools = new Set();
+    function saveCustomTools() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(customTools));
+      } catch {
+        alert("Could not save. Your browser storage may be unavailable.");
+      }
+    }
+
+    function getAllTools() {
+      return [...starterTools, ...customTools];
+    }
+
+    function validExternalUrl(value) {
+      try {
+        const url = new URL(value);
+        return url.protocol === "https:" || url.protocol === "http:";
+      } catch {
+        return false;
+      }
+    }
+
+    function renderCategories() {
+      $("categories").innerHTML = categories.map(category => `
+        <button class="category ${selectedCategory === category ? "active" : ""}"
+          data-category="${category}">
+          ${category}
+        </button>
+      `).join("");
+
+      $("toolCategory").innerHTML = categories
+        .filter(category => category !== "All Tools")
+        .map(category => `<option value="${category}">${category}</option>`)
+        .join("");
     }
 
     function renderTools() {
-      let filtered = tools.filter(tool => {
+      const query = $("searchInput").value.trim().toLowerCase();
+
+      const results = getAllTools().filter(tool => {
         const matchesCategory =
-          selectedCategory === "All" ||
+          selectedCategory === "All Tools" ||
           tool.category === selectedCategory;
 
-        const searchText = [
-          tool.name,
-          tool.category,
-          tool.description,
-          ...tool.tags
-        ].join(" ").toLowerCase();
+        const searchable =
+          `${tool.name} ${tool.description} ${tool.category}`.toLowerCase();
 
-        const matchesSearch = searchText.includes(searchTerm.toLowerCase());
-
-        const matchesSaved =
-          savedFilter.value !== "saved" || savedTools.has(tool.name);
-
-        return matchesCategory && matchesSearch && matchesSaved;
+        return matchesCategory && searchable.includes(query);
       });
 
-      if (sortFilter.value === "az") {
-        filtered.sort((a, b) => a.name.localeCompare(b.name));
-      }
+      $("toolCount").textContent = `${results.length} tools`;
 
-      toolsHeading.textContent =
-        selectedCategory === "All"
-          ? "Explore AI Tools"
-          : selectedCategory + " AI Tools";
-
-      if (filtered.length === 0) {
-        toolGrid.innerHTML = `
-          <div class="no-results">
-            <h3>No tools found</h3>
-            <p>Try another search term or category.</p>
-          </div>
-        `;
+      if (!results.length) {
+        $("toolsGrid").innerHTML =
+          '<div class="empty">No tools found. Try another search.</div>';
         return;
       }
 
-      toolGrid.innerHTML = filtered.map(tool => {
-        const saved = savedTools.has(tool.name);
-
-        return `
-          <article class="tool-card">
-            <div class="tool-top">
-              <div class="tool-icon" aria-hidden="true">${tool.icon}</div>
-              <div>
-                <h3>${tool.name}</h3>
-                <div class="type">${tool.category}</div>
-              </div>
-            </div>
-
-            <p class="description">${tool.description}</p>
-
-            <div class="tool-tags">
-              ${tool.tags.map(tag => `<span>${tag}</span>`).join("")}
-            </div>
-
-            <div class="tool-actions">
-              <a
-                class="visit-btn"
-                href="${tool.url}"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visit ${tool.name} official website"
-              >Visit Official Website ↗</a>
-
-              <button
-                class="save-btn ${saved ? "saved" : ""}"
-                data-save="${tool.name}"
-                aria-pressed="${saved}"
-                aria-label="${saved ? "Remove" : "Save"} ${tool.name}"
-              >${saved ? "♥ Saved" : "♡ Save"}</button>
-            </div>
-          </article>
-        `;
-      }).join("");
+      $("toolsGrid").innerHTML = results.map(tool => `
+        <article class="tool-card">
+          <div class="tool-icon">${escapeHTML(tool.icon || "✨")}</div>
+          <h3>${escapeHTML(tool.name)}</h3>
+          <p>${escapeHTML(tool.description)}</p>
+          <div class="tool-meta">
+            <span class="tag">${escapeHTML(tool.category)}</span>
+            <span class="muted">AI Tool</span>
+          </div>
+          <a class="tool-link"
+             href="${escapeHTML(tool.url)}"
+             target="_blank"
+             rel="noopener noreferrer">
+             Visit Website ↗
+          </a>
+        </article>
+      `).join("");
     }
 
-    document.getElementById("searchForm").addEventListener("submit", event => {
-      event.preventDefault();
-      searchTerm = searchInput.value.trim();
-      renderTools();
-      document.getElementById("tools").scrollIntoView({ behavior: "smooth" });
-    });
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>"']/g, character => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[character]);
+    }
 
-    searchInput.addEventListener("input", () => {
-      searchTerm = searchInput.value.trim();
-      renderTools();
-    });
+    function renderAdminList() {
+      const list = $("adminToolsList");
 
-    categoryFilter.addEventListener("change", () => {
-      selectedCategory = categoryFilter.value;
-      document.querySelectorAll(".category").forEach(button => {
-        button.classList.toggle(
-          "active",
-          button.dataset.category === selectedCategory
-        );
-      });
-      renderTools();
-    });
+      if (!customTools.length) {
+        list.innerHTML = '<p class="muted">No custom tools added yet.</p>';
+        return;
+      }
 
-    sortFilter.addEventListener("change", renderTools);
-    savedFilter.addEventListener("change", renderTools);
+      list.innerHTML = customTools.map(tool => `
+        <div class="admin-item">
+          <div>
+            <strong>${escapeHTML(tool.name)}</strong><br>
+            <small class="muted">${escapeHTML(tool.category)}</small>
+          </div>
+          <button class="delete-btn" data-delete="${escapeHTML(tool.id)}">
+            Delete
+          </button>
+        </div>
+      `).join("");
+    }
 
-    document.getElementById("categoryGrid").addEventListener("click", event => {
+    function openAdmin() {
+      $("adminModal").classList.add("open");
+    }
+
+    function closeAdmin() {
+      $("adminModal").classList.remove("open");
+    }
+
+    $("categories").addEventListener("click", event => {
       const button = event.target.closest("[data-category]");
       if (!button) return;
 
       selectedCategory = button.dataset.category;
-      categoryFilter.value = selectedCategory;
+      renderCategories();
+      renderTools();
+    });
 
-      document.querySelectorAll(".category").forEach(item => {
-        item.classList.toggle("active", item === button);
+    $("searchInput").addEventListener("input", renderTools);
+    $("searchButton").addEventListener("click", renderTools);
+    $("adminOpen").addEventListener("click", openAdmin);
+    $("adminClose").addEventListener("click", closeAdmin);
+
+    $("adminModal").addEventListener("click", event => {
+      if (event.target === $("adminModal")) closeAdmin();
+    });
+
+    $("loginButton").addEventListener("click", () => {
+      // Demo password only. Not secure for a public website.
+      if ($("adminPassword").value === "jahid7788") {
+        adminLoggedIn = true;
+        $("loginSection").hidden = true;
+        $("adminSection").hidden = false;
+        renderAdminList();
+      } else {
+        alert("Incorrect demo password.");
+      }
+    });
+
+    $("logoutButton").addEventListener("click", () => {
+      adminLoggedIn = false;
+      $("adminPassword").value = "";
+      $("loginSection").hidden = false;
+      $("adminSection").hidden = true;
+    });
+
+    $("toolForm").addEventListener("submit", event => {
+      event.preventDefault();
+
+      if (!adminLoggedIn) {
+        alert("Please log in first.");
+        return;
+      }
+
+      const name = $("toolName").value.trim();
+      const url = $("toolUrl").value.trim();
+      const category = $("toolCategory").value;
+      const icon = $("toolIcon").value.trim() || "✨";
+      const description = $("toolDescription").value.trim();
+
+      if (!validExternalUrl(url)) {
+        alert("Enter a valid website URL beginning with https://");
+        return;
+      }
+
+      if (!name || !description || !category) {
+        alert("Please complete all required fields.");
+        return;
+      }
+
+      customTools.push({
+        id: "custom-" + Date.now() + "-" +
+          Math.random().toString(36).slice(2, 7),
+        name,
+        url,
+        category,
+        icon,
+        description
       });
 
-      renderTools();
-      document.getElementById("tools").scrollIntoView({ behavior: "smooth" });
-    });
-
-    toolGrid.addEventListener("click", event => {
-      const button = event.target.closest("[data-save]");
-      if (!button) return;
-
-      const name = button.dataset.save;
-
-      if (savedTools.has(name)) {
-        savedTools.delete(name);
-      } else {
-        savedTools.add(name);
-      }
-
-      try {
-        localStorage.setItem(
-          "aiHubSavedTools",
-          JSON.stringify([...savedTools])
-        );
-      } catch (error) {
-        // Saving may be unavailable in private browsing.
-      }
+      saveCustomTools();
+      $("toolForm").reset();
+      $("toolIcon").value = "✨";
 
       renderTools();
+      renderAdminList();
+
+      alert("Tool added in this browser.");
     });
 
-    document.getElementById("year").textContent = new Date().getFullYear();
+    $("adminToolsList").addEventListener("click", event => {
+      const button = event.target.closest("[data-delete]");
+      if (!button || !adminLoggedIn) return;
 
+      const id = button.dataset.delete;
+
+      if (!confirm("Are you sure you want to delete this custom tool?")) {
+        return;
+      }
+
+      customTools = customTools.filter(tool => tool.id !== id);
+      saveCustomTools();
+      renderTools();
+      renderAdminList();
+    });
+
+    renderCategories();
     renderTools();
+
+    // Google Translate language selector.
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: "en",
+        includedLanguages:
+          "ar,bn,zh-CN,zh-TW,cs,da,nl,en,fil,fi,fr,de,el,gu,hi,id,it,ja,kn,ko,ml,mr,ne,no,fa,pl,pt,pa,ro,ru,es,sv,ta,te,th,tr,uk,ur,vi",
+        autoDisplay: false
+      }, "google_translate_element");
+    }
+  </script>
+
+  <script
+    src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
   </script>
 </body>
 </html>
