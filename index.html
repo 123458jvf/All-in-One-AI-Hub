@@ -1,786 +1,518 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Discover AI tools for writing, coding, images, video, productivity and more.">
+  <meta name="description" content="Discover AI tools for writing, images, design, coding and productivity in one place.">
   <meta name="google-site-verification" content="CkueB7Qgyj5rJ_k2UZdph4emXAP5P7zquvCNOxcEnKw">
-  <title>All-in-One AI Hub | Discover AI Tools</title>
+  <meta name="theme-color" content="#101827">
+  <title>All-in-One AI Hub</title>
 
-  <!-- Google AdSense -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4273007448994004" crossorigin="anonymous"></script>
+  <!-- Google AdSense: load only once per page -->
+  <script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4273007448994004"
+    crossorigin="anonymous"></script>
 
   <style>
-    :root {
-      --bg: #f7f8fc;
-      --surface: #fff;
-      --text: #172033;
-      --muted: #68738a;
-      --primary: #635bff;
-      --border: #e7eaf2;
-      --shadow: 0 8px 28px rgba(29,39,72,.07);
-    }
-
     * { box-sizing: border-box; }
-    [hidden] { display: none !important; }
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: Arial, sans-serif;
+      color: #182235;
+      background: #f5f7fb;
+      line-height: 1.6;
     }
 
-    a { color: inherit; text-decoration: none; }
-    button, input, select, textarea { font: inherit; }
-    button { cursor: pointer; }
+    header {
+      background: #101827;
+      color: white;
+      padding: 16px;
+    }
 
-    .topbar {
+    .nav {
+      max-width: 1100px;
+      margin: auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 14px;
-      padding: 15px 5%;
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 10;
+      gap: 12px;
     }
 
-    .brand {
-      font-size: 22px;
-      font-weight: 800;
-      color: var(--primary);
-      white-space: nowrap;
+    .brand { font-size: 21px; font-weight: bold; }
+    .brand span { color: #a5a0ff; }
+
+    button, input {
+      font: inherit;
     }
 
-    .header-actions {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .btn, .language-select {
-      border: 1px solid var(--border);
-      background: white;
-      border-radius: 10px;
-      padding: 10px 13px;
-      color: var(--text);
-    }
-
-    .btn-primary {
-      background: var(--primary);
+    button {
+      border: 0;
+      border-radius: 8px;
+      padding: 10px 14px;
+      cursor: pointer;
+      background: #635bff;
       color: white;
-      border-color: var(--primary);
     }
 
     .hero {
-      padding: 65px 18px 40px;
       text-align: center;
-      background: linear-gradient(135deg,#eeedff,#f9faff,#e8f7ff);
+      padding: 55px 16px 35px;
+      background: linear-gradient(135deg, #e8e7ff, #f8faff);
     }
 
-    .eyebrow {
-      display: inline-block;
-      padding: 7px 12px;
-      border-radius: 30px;
-      background: white;
-      color: var(--primary);
-      font-size: 13px;
-      font-weight: bold;
+    h1 {
+      font-size: clamp(30px, 5vw, 52px);
+      line-height: 1.15;
+      margin: 12px auto;
     }
 
-    .hero h1 {
-      font-size: clamp(30px,5vw,54px);
-      margin: 20px auto 14px;
-      max-width: 800px;
-      line-height: 1.12;
-    }
+    .highlight { color: #635bff; }
 
     .hero p {
-      color: var(--muted);
-      max-width: 600px;
-      margin: 0 auto 25px;
-      line-height: 1.7;
-    }
-
-    .search-box {
+      color: #64748b;
       max-width: 650px;
-      display: flex;
-      gap: 10px;
-      margin: auto;
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 7px;
-      box-shadow: var(--shadow);
+      margin: 15px auto;
     }
 
-    .search-box input {
-      min-width: 0;
+    .search {
+      display: flex;
+      max-width: 600px;
+      margin: 25px auto 0;
+      gap: 8px;
+    }
+
+    .search input {
       flex: 1;
-      padding: 12px;
-      border: 0;
-      outline: 0;
+      min-width: 0;
+      padding: 13px;
+      border: 1px solid #dce2ee;
+      border-radius: 9px;
+      background: white;
     }
 
-    main {
-      max-width: 1250px;
-      margin: auto;
-      padding: 35px 20px 60px;
+    .container {
+      max-width: 1100px;
+      width: calc(100% - 30px);
+      margin: 25px auto 50px;
     }
 
-    .section-heading {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 18px;
+    .ad-label {
+      text-align: center;
+      color: #888;
+      font-size: 10px;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
     }
 
-    .section-heading h2 { margin: 0; font-size: 25px; }
-    .muted { color: var(--muted); }
+    .ad-area {
+      width: 100%;
+      min-height: 100px;
+      overflow: hidden;
+      margin: 22px auto;
+      text-align: center;
+    }
 
     .categories {
       display: flex;
-      flex-wrap: wrap;
-      gap: 9px;
-      margin-bottom: 32px;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 10px 0 18px;
     }
 
     .category {
-      padding: 10px 15px;
-      border: 1px solid var(--border);
+      flex-shrink: 0;
       background: white;
-      border-radius: 30px;
-      color: #414c63;
+      color: #333;
+      border: 1px solid #e1e5ed;
     }
 
     .category.active {
-      background: var(--primary);
+      background: #635bff;
       color: white;
-      border-color: var(--primary);
     }
 
-    .tools-grid {
+    .grid {
       display: grid;
-      grid-template-columns: repeat(4,minmax(0,1fr));
-      gap: 18px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
     }
 
-    .tool-card {
+    .card {
       background: white;
-      border: 1px solid var(--border);
-      border-radius: 17px;
       padding: 20px;
+      border: 1px solid #e5eaf2;
+      border-radius: 14px;
+      box-shadow: 0 5px 18px #17255408;
       display: flex;
       flex-direction: column;
-      min-height: 235px;
-      transition: transform .2s, box-shadow .2s;
+      min-height: 190px;
     }
 
-    .tool-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-    }
+    .card h3 { margin: 12px 0 5px; }
+    .card p { color: #64748b; font-size: 14px; margin-top: 4px; }
+    .card a { color: #5145dc; font-weight: bold; margin-top: auto; }
 
-    .tool-icon {
-      width: 49px;
-      height: 49px;
-      display: grid;
-      place-items: center;
-      background: #f0efff;
-      border-radius: 14px;
-      font-size: 25px;
-      margin-bottom: 15px;
-    }
-
-    .tool-card h3 { margin: 0 0 9px; font-size: 18px; }
-
-    .tool-card p {
-      color: var(--muted);
-      line-height: 1.55;
-      font-size: 14px;
-      flex: 1;
-      margin: 0 0 17px;
-    }
-
-    .tool-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-      font-size: 12px;
-      margin-bottom: 14px;
-    }
-
-    .tag {
-      background: #f0efff;
-      color: #554ce0;
-      padding: 5px 8px;
-      border-radius: 7px;
-    }
-
-    .tool-link {
-      display: block;
-      text-align: center;
-      padding: 11px;
-      border-radius: 9px;
-      background: #f1f2ff;
-      color: var(--primary);
-      font-weight: bold;
-    }
-
-    .empty {
-      grid-column: 1/-1;
-      padding: 45px 10px;
-      text-align: center;
-      color: var(--muted);
-    }
-
-    .ad-space {
-      margin: 0 0 30px;
-      padding: 18px;
-      border: 1px dashed #cbd1df;
-      border-radius: 12px;
-      color: var(--muted);
-      text-align: center;
-      font-size: 12px;
-    }
+    .icon { font-size: 27px; }
+    .empty { display: none; padding: 25px; text-align: center; }
 
     footer {
-      background: white;
-      border-top: 1px solid var(--border);
-      padding: 28px 18px;
+      background: #101827;
+      color: white;
+      padding: 25px 15px;
       text-align: center;
-      color: var(--muted);
-      line-height: 1.8;
     }
-
-    footer a { color: var(--primary); }
 
     .modal {
       display: none;
       position: fixed;
       inset: 0;
-      z-index: 100;
-      background: rgba(14,20,40,.65);
-      padding: 18px;
-      overflow-y: auto;
+      background: #0009;
+      z-index: 10;
+      padding: 20px;
       align-items: center;
       justify-content: center;
     }
 
-    .modal.open { display: flex; }
-
     .modal-box {
-      width: 100%;
-      max-width: 650px;
       background: white;
-      padding: 25px;
-      border-radius: 18px;
-      box-shadow: var(--shadow);
-      max-height: 92vh;
-      overflow-y: auto;
+      padding: 24px;
+      border-radius: 14px;
+      max-width: 400px;
+      width: 100%;
     }
 
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .modal-header h2 { margin: 0 0 18px; }
-
-    .close-btn {
-      border: 0;
-      background: #f1f2f7;
-      border-radius: 9px;
-      padding: 8px 12px;
-    }
-
-    .field { margin-bottom: 14px; }
-
-    .field label {
-      display: block;
-      font-weight: bold;
-      font-size: 14px;
-      margin-bottom: 7px;
-    }
-
-    .field input, .field select, .field textarea {
+    .modal-box input {
       width: 100%;
       padding: 12px;
-      border: 1px solid #dce0eb;
-      border-radius: 9px;
-      outline-color: var(--primary);
-      background: white;
-    }
-
-    .field textarea { min-height: 75px; resize: vertical; }
-
-    .admin-list { margin-top: 25px; }
-
-    .admin-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .delete-btn {
-      border: 0;
-      background: #fff0f0;
-      color: #c62828;
-      padding: 8px 10px;
+      margin: 8px 0;
+      border: 1px solid #ddd;
       border-radius: 8px;
     }
 
-    .notice {
-      background: #fff8df;
-      border: 1px solid #f0df9c;
-      padding: 12px;
-      border-radius: 10px;
-      color: #715b17;
-      line-height: 1.5;
-      font-size: 13px;
-      margin-bottom: 18px;
+    .modal-box p { color: #64748b; font-size: 13px; }
+
+    @media (max-width: 750px) {
+      .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
 
-    #google_translate_element {
-      display: inline-block;
-      max-width: 150px;
-      overflow: hidden;
-    }
-
-    .goog-te-gadget { font-size: 0 !important; }
-
-    .goog-te-gadget select {
-      max-width: 145px;
-      padding: 9px;
-      border: 1px solid var(--border);
-      border-radius: 9px;
-      background: white;
-      color: var(--text);
-    }
-
-    body .goog-te-banner-frame { display: none !important; }
-    body { top: 0 !important; }
-
-    @media(max-width:1000px) {
-      .tools-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
-    }
-
-    @media(max-width:700px) {
-      .topbar { padding: 12px 4%; flex-wrap: wrap; }
-      .brand { font-size: 18px; }
-      .header-actions { flex-wrap: wrap; }
-      .hero { padding-top: 45px; }
-      .tools-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
-      main { padding: 28px 13px 45px; }
-      .tool-card { padding: 15px; min-height: 240px; }
-      .tool-card h3 { font-size: 16px; }
-      .tool-card p { font-size: 13px; }
-      .section-heading h2 { font-size: 21px; }
-    }
-
-    @media(max-width:390px) {
-      .tools-grid { grid-template-columns: 1fr; }
-      .header-actions { width: 100%; justify-content: space-between; }
+    @media (max-width: 500px) {
+      .grid { grid-template-columns: 1fr; }
+      .brand { font-size: 16px; }
+      .hero { padding-top: 38px; }
+      .search button { padding: 10px; }
     }
   </style>
 </head>
 
 <body>
-  <header class="topbar">
-    <a class="brand" href="#" aria-label="AI Hub home">✦ AI Hub</a>
-    <div class="header-actions">
-      <div id="google_translate_element"></div>
-      <button class="btn btn-primary" id="adminOpen" type="button">Admin Login</button>
-    </div>
-  </header>
 
-  <section class="hero">
-    <span class="eyebrow">✦ Your AI discovery platform</span>
-    <h1>Discover the Best AI Tools in One Place</h1>
-    <p>Explore AI tools for writing, coding, images, video, learning and productivity.</p>
-    <div class="search-box">
-      <input id="searchInput" type="search" placeholder="Search AI tools or categories..." aria-label="Search AI tools">
-      <button class="btn btn-primary" id="searchButton" type="button">Search</button>
-    </div>
-  </section>
-
-  <main>
-    <div class="ad-space">Advertisement</div>
-    <div class="section-heading"><h2>Explore Categories</h2></div>
-    <div class="categories" id="categories"></div>
-    <div class="section-heading">
-      <h2>AI Tools Directory</h2>
-      <span class="muted" id="toolCount"></span>
-    </div>
-    <div class="tools-grid" id="toolsGrid"></div>
-  </main>
-
-  <footer>
-    <strong>✦ All-in-One AI Hub</strong>
-    <p>Discover useful AI tools for your everyday work.</p>
-    <p>
-      <a href="mailto:contact@example.com">Contact</a> ·
-      <a href="#privacy">Privacy Policy</a> ·
-      <a href="#about">About Us</a>
-    </p>
-    <small>Some tools are provided by third parties. Please review their terms before use.</small>
-  </footer>
-
-  <!-- Admin login and management panel -->
-  <div class="modal" id="adminModal" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
-    <div class="modal-box">
-      <div class="modal-header">
-        <h2 id="adminTitle">Admin Panel</h2>
-        <button class="close-btn" id="adminClose" type="button" aria-label="Close">✕</button>
-      </div>
-
-      <div id="loginSection">
-        <div class="notice">
-          Demo login only. The password is visible in this website's source code.
-          Do not use this as a secure production admin system.
-        </div>
-        <div class="field">
-          <label for="adminPassword">Admin Password</label>
-          <input id="adminPassword" type="password" placeholder="Enter admin password" autocomplete="current-password">
-        </div>
-        <button class="btn btn-primary" id="loginButton" type="button">Login</button>
-      </div>
-
-      <div id="adminSection" hidden>
-        <div class="notice">
-          Custom tools are saved in this browser only. They are not shared with other visitors.
-        </div>
-
-        <form id="toolForm">
-          <div class="field">
-            <label for="toolName">Tool Name</label>
-            <input id="toolName" required maxlength="80" placeholder="Example: My AI Writer">
-          </div>
-          <div class="field">
-            <label for="toolUrl">Website URL</label>
-            <input id="toolUrl" type="url" required placeholder="https://example.com">
-          </div>
-          <div class="field">
-            <label for="toolCategory">Category</label>
-            <select id="toolCategory" required></select>
-          </div>
-          <div class="field">
-            <label for="toolIcon">Icon (emoji)</label>
-            <input id="toolIcon" maxlength="8" value="✨">
-          </div>
-          <div class="field">
-            <label for="toolDescription">Description</label>
-            <textarea id="toolDescription" required maxlength="250" placeholder="What does this tool do?"></textarea>
-          </div>
-          <button class="btn btn-primary" type="submit">Add AI Tool</button>
-        </form>
-
-        <div class="admin-list">
-          <h3>Manage Custom Tools</h3>
-          <div id="adminToolsList"></div>
-        </div>
-
-        <button class="btn" id="logoutButton" type="button" style="margin-top:20px">Logout</button>
-      </div>
+<header>
+  <div class="nav">
+    <div class="brand">✦ All-in-One <span>AI Hub</span></div>
+    <div>
+      <button id="languageBtn" type="button">বাংলা</button>
+      <button id="loginBtn" type="button" data-en="Login" data-bn="লগইন">Login</button>
     </div>
   </div>
+</header>
 
-  <script>
-    "use strict";
+<section class="hero">
+  <h1 data-en-html="Everything AI, <span class='highlight'>all in one place.</span>"
+      data-bn-html="সব AI টুল, <span class='highlight'>এক জায়গায়।</span>">
+    Everything AI, <span class="highlight">all in one place.</span>
+  </h1>
 
-    const ADMIN_PASSWORD = "jahid7788";
-    const STORAGE_KEY = "ai_hub_custom_tools_v2";
+  <p data-en="Discover helpful AI tools for writing, images, coding, design and productivity."
+     data-bn="লেখালেখি, ছবি, কোডিং, ডিজাইন ও কাজের জন্য দরকারি AI টুল খুঁজুন।">
+    Discover helpful AI tools for writing, images, coding, design and productivity.
+  </p>
 
-    const categories = [
-      "All Tools", "Writing", "Coding", "Image Generation", "Video",
-      "Productivity", "Research", "Education", "Audio", "Business"
-    ];
+  <div class="search">
+    <input id="searchInput" type="search"
+           placeholder="Search AI tools..."
+           aria-label="Search AI tools">
+    <button id="searchBtn" type="button" data-en="Search" data-bn="খুঁজুন">Search</button>
+  </div>
+</section>
 
-    const starterTools = [
-      {id:"chatgpt",name:"ChatGPT",url:"https://chatgpt.com/",category:"Writing",icon:"🤖",description:"An AI assistant for writing, learning, ideas and everyday tasks."},
-      {id:"gemini",name:"Google Gemini",url:"https://gemini.google.com/",category:"Writing",icon:"✨",description:"Google's AI assistant for questions, ideas and productivity."},
-      {id:"claude",name:"Claude",url:"https://claude.ai/",category:"Writing",icon:"🧠",description:"An AI assistant for writing, analysis and problem solving."},
-      {id:"perplexity",name:"Perplexity",url:"https://www.perplexity.ai/",category:"Research",icon:"🔎",description:"Explore questions and research topics with linked sources."},
-      {id:"copilot",name:"Microsoft Copilot",url:"https://copilot.microsoft.com/",category:"Productivity",icon:"💠",description:"An AI assistant for ideas, answers and productivity."},
-      {id:"deepseek",name:"DeepSeek",url:"https://chat.deepseek.com/",category:"Coding",icon:"💻",description:"AI assistance for reasoning, coding and general questions."},
-      {id:"huggingface",name:"Hugging Face",url:"https://huggingface.co/",category:"Research",icon:"🤗",description:"Discover machine-learning models, datasets and AI demos."},
-      {id:"canva",name:"Canva",url:"https://www.canva.com/",category:"Image Generation",icon:"🎨",description:"Create designs, presentations and visual content."},
-      {id:"firefly",name:"Adobe Firefly",url:"https://firefly.adobe.com/",category:"Image Generation",icon:"🖼️",description:"Explore AI-powered image and creative design tools."},
-      {id:"leonardo",name:"Leonardo AI",url:"https://leonardo.ai/",category:"Image Generation",icon:"🌄",description:"Create AI-generated artwork and visual assets."},
-      {id:"runway",name:"Runway",url:"https://runwayml.com/",category:"Video",icon:"🎬",description:"Explore AI-powered video creation and editing."},
-      {id:"pika",name:"Pika",url:"https://pika.art/",category:"Video",icon:"📹",description:"Create and experiment with AI-generated video."},
-      {id:"elevenlabs",name:"ElevenLabs",url:"https://elevenlabs.io/",category:"Audio",icon:"🎙️",description:"AI tools for voice generation and audio production."},
-      {id:"suno",name:"Suno",url:"https://suno.com/",category:"Audio",icon:"🎵",description:"Create music with AI-assisted tools."},
-      {id:"notion",name:"Notion",url:"https://www.notion.so/",category:"Productivity",icon:"📝",description:"Organize notes, projects and knowledge in one workspace."},
-      {id:"khan",name:"Khan Academy",url:"https://www.khanacademy.org/",category:"Education",icon:"📚",description:"Learn subjects through lessons and practice."},
-      {id:"grammarly",name:"Grammarly",url:"https://www.grammarly.com/",category:"Writing",icon:"✍️",description:"Improve writing clarity, spelling and grammar."},
-      {id:"zapier",name:"Zapier",url:"https://zapier.com/",category:"Business",icon:"⚙️",description:"Automate workflows between online applications."}
-    ];
+<main class="container">
 
-    const $ = id => document.getElementById(id);
-    let selectedCategory = "All Tools";
-    let adminLoggedIn = false;
-    let customTools = loadCustomTools();
+  <!-- Google AdSense Coffee ad unit -->
+  <div class="ad-area">
+    <div class="ad-label">ADVERTISEMENT</div>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-4273007448994004"
+         data-ad-slot="2789840439"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </div>
 
-    function loadCustomTools() {
+  <h2 data-en="Explore AI Tools" data-bn="AI টুল খুঁজুন">Explore AI Tools</h2>
+
+  <div class="categories" id="categories">
+    <button class="category active" data-category="All"
+            data-en="All Tools" data-bn="সব টুল">All Tools</button>
+    <button class="category" data-category="Writing"
+            data-en="✍️ Writing" data-bn="✍️ লেখালেখি">✍️ Writing</button>
+    <button class="category" data-category="Images"
+            data-en="🎨 Images & Design" data-bn="🎨 ছবি ও ডিজাইন">🎨 Images & Design</button>
+    <button class="category" data-category="Coding"
+            data-en="💻 Coding" data-bn="💻 কোডিং">💻 Coding</button>
+    <button class="category" data-category="Productivity"
+            data-en="⚡ Productivity" data-bn="⚡ কাজের টুল">⚡ Productivity</button>
+    <button class="category" data-category="Research"
+            data-en="🔎 Research" data-bn="🔎 গবেষণা">🔎 Research</button>
+  </div>
+
+  <div class="grid" id="toolGrid">
+
+    <article class="card" data-category="Writing" data-search="chatgpt writing assistant">
+      <div class="icon">💬</div>
+      <h3>ChatGPT</h3>
+      <p data-en="Writing, learning, brainstorming and everyday assistance."
+         data-bn="লেখালেখি, শেখা, আইডিয়া ও দৈনন্দিন কাজে সহায়তা।">Writing, learning, brainstorming and everyday assistance.</p>
+      <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">Open Tool ↗</a>
+    </article>
+
+    <article class="card" data-category="Writing" data-search="claude writing documents">
+      <div class="icon">✳️</div>
+      <h3>Claude</h3>
+      <p data-en="Help with writing, documents and analysis."
+         data-bn="লেখালেখি, ডকুমেন্ট ও বিশ্লেষণে সহায়তা।">Help with writing, documents and analysis.</p>
+      <a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">Open Tool ↗</a>
+    </article>
+
+    <article class="card" data-category="Research" data-search="perplexity research search">
+      <div class="icon">🔎</div>
+      <h3>Perplexity</h3>
+      <p data-en="Research questions and explore linked sources."
+         data-bn="প্রশ্ন নিয়ে গবেষণা করুন ও সূত্র খুঁজুন।">Research questions and explore linked sources.</p>
+      <a href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer">Open Tool ↗</a>
+    </article>
+
+    <article class="card" data-category="Images" data-search="canva graphic design">
+      <div class="icon">🎨</div>
+      <h3>Canva</h3>
+      <p data-en="Create graphics, posters and social media designs."
+         data-bn="গ্রাফিক্স, পোস্টার ও সোশ্যাল মিডিয়া ডিজাইন তৈরি করুন।">Create graphics, posters and social media designs.</p>
+      <a href="https://www.canva.com/" target="_blank" rel="noopener noreferrer">Open Tool ↗</a>
+    </article>
+
+    <article class="card" data-category="Images" data-search="adobe firefly ai images">
+      <div class="icon">🪄</div>
+      <h3>Adobe Firefly</h3>
+      <p data-en="Explore AI-assisted image creation."
+         data-bn="AI দিয়ে ছবি তৈরির টুল ব্যবহার করুন।">Explore AI-assisted image creation.</p>
+      <a href="https://firefly.adobe.com/" target="_blank" rel="noopener noreferrer">Open Tool ↗</a>
+    </article>
+
+    <article class="card" data-category="Coding" data-search="github copilot coding">
+      <div class="icon">💻</div>
+      <h3>GitHub Copilot</h3>
+      <p data-en="Get coding suggestions and programming help."
+         data-bn="কোডিংয়ের পরামর্শ ও প্রোগ্রামিং সহায়তা নিন।">Get coding suggestions and programming help.</p>
+      <a href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer">Open Tool ↗</a>
+    </article>
+
+    <article class="card" data-category="Coding" data-search="replit code development">
+      <div class="icon">🧑‍💻</div>
+      <h3>Replit</h3>
+      <p data-en="Build and run coding projects in your browser."
+         data-bn="ব্রাউজারে কোডিং প্রজেক্ট তৈরি ও চালান।">Build and run coding projects in your browser.</p>
+      <a href="https://replit.com/" target="_blank" rel="noopener noreferrer">Open Tool ↗</a>
+    </article>
+
+    <article class="card" data-category="Productivity" data-search="notion notes productivity">
+      <div class="icon">🗂️</div>
+      <h3>Notion</h3>
+      <p data-en="Organize notes, projects and information."
+         data-bn="নোট, প্রজেক্ট ও তথ্য গুছিয়ে রাখুন।">Organize notes, projects and information.</p>
+      <a href="https://www.notion.so/" target="_blank" rel="noopener noreferrer">Open Tool ↗</a>
+    </article>
+
+    <article class="card" data-category="Productivity" data-search="grammarly grammar writing">
+      <div class="icon">📝</div>
+      <h3>Grammarly</h3>
+      <p data-en="Review grammar, clarity and writing style."
+         data-bn="লেখার ব্যাকরণ ও স্পষ্টতা যাচাই করুন।">Review grammar, clarity and writing style.</p>
+      <a href="https://www.grammarly.com/" target="_blank" rel="noopener noreferrer">Open Tool ↗</a>
+    </article>
+
+    <article class="card" data-category="Images" data-search="remove bg image background">
+      <div class="icon">🖼️</div>
+      <h3>remove.bg</h3>
+      <p data-en="Remove backgrounds from photos."
+         data-bn="ছবি থেকে ব্যাকগ্রাউন্ড সরান।">Remove backgrounds from photos.</p>
+      <a href="https://www.remove.bg/" target="_blank" rel="noopener noreferrer">Open Tool ↗</a>
+    </article>
+
+    <article class="card" data-category="Writing" data-search="deepl translate translation">
+      <div class="icon">🌐</div>
+      <h3>DeepL</h3>
+      <p data-en="Translate text between languages."
+         data-bn="বিভিন্ন ভাষায় লেখা অনুবাদ করুন।">Translate text between languages.</p>
+      <a href="https://www.deepl.com/" target="_blank" rel="noopener noreferrer">Open Tool ↗</a>
+    </article>
+
+    <article class="card" data-category="Research" data-search="notebooklm google research notes">
+      <div class="icon">📚</div>
+      <h3>NotebookLM</h3>
+      <p data-en="Explore and summarize information from your sources."
+         data-bn="আপনার দেওয়া সূত্র থেকে তথ্যের সারাংশ তৈরি করুন।">Explore and summarize information from your sources.</p>
+      <a href="https://notebooklm.google.com/" target="_blank" rel="noopener noreferrer">Open Tool ↗</a>
+    </article>
+
+  </div>
+
+  <p id="emptyState" class="empty"
+     data-en="No tools found. Try another search."
+     data-bn="কোনো টুল পাওয়া যায়নি। অন্যভাবে খুঁজুন।">
+    No tools found. Try another search.
+  </p>
+
+  <div class="ad-area">
+    <div class="ad-label">ADVERTISEMENT</div>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-4273007448994004"
+         data-ad-slot="2789840439"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+  </div>
+
+  <h2 data-en="About AI Hub" data-bn="AI Hub সম্পর্কে">About AI Hub</h2>
+  <p data-en="All-in-One AI Hub helps visitors discover AI tools for creativity, productivity and learning."
+     data-bn="All-in-One AI Hub ব্যবহারকারীদের সৃজনশীলতা, কাজ ও শেখার জন্য AI টুল খুঁজে পেতে সাহায্য করে।">
+    All-in-One AI Hub helps visitors discover AI tools for creativity, productivity and learning.
+  </p>
+
+</main>
+
+<footer>
+  <strong>✦ All-in-One AI Hub</strong>
+  <p>© <span id="year"></span> All-in-One AI Hub</p>
+  <p><a href="mailto:contact@example.com" style="color:#c7c4ff">Contact</a></p>
+</footer>
+
+<div class="modal" id="loginModal" role="dialog" aria-modal="true">
+  <div class="modal-box">
+    <h2 data-en="Login Preview" data-bn="লগইন প্রিভিউ">Login Preview</h2>
+    <p data-en="Login is a visual demo only. Secure authentication is not connected."
+       data-bn="লগইন শুধু ডেমো। নিরাপদ অ্যাকাউন্ট ব্যবস্থা এখনো যুক্ত হয়নি।">
+      Login is a visual demo only. Secure authentication is not connected.
+    </p>
+    <input type="email" placeholder="Email" autocomplete="email">
+    <input type="password" placeholder="Password" autocomplete="current-password">
+    <button id="demoLogin" type="button"
+            data-en="Continue (Demo)" data-bn="চালিয়ে যান (ডেমো)">Continue (Demo)</button>
+    <button id="closeModal" type="button"
+            style="background:#64748b">Close</button>
+  </div>
+</div>
+
+<script>
+(() => {
+  const $ = (selector) => document.querySelector(selector);
+  const $$ = (selector) => [...document.querySelectorAll(selector)];
+
+  let language = "en";
+  let category = "All";
+
+  $("#year").textContent = new Date().getFullYear();
+
+  function updateLanguage() {
+    document.documentElement.lang = language;
+
+    $$("[data-en]").forEach(element => {
+      element.textContent = element.dataset[language];
+    });
+
+    $$("[data-en-html]").forEach(element => {
+      element.innerHTML = element.dataset[language + "Html"];
+    });
+
+    $("#languageBtn").textContent = language === "en" ? "বাংলা" : "English";
+    $("#searchInput").placeholder =
+      language === "en" ? "Search AI tools..." : "AI টুল খুঁজুন...";
+
+    updateTools();
+  }
+
+  function updateTools() {
+    const query = $("#searchInput").value.trim().toLowerCase();
+    let visibleCount = 0;
+
+    $$(".card").forEach(card => {
+      const categoryMatch =
+        category === "All" || card.dataset.category === category;
+
+      const searchText =
+        (card.dataset.search + " " + card.innerText).toLowerCase();
+
+      const visible = categoryMatch && searchText.includes(query);
+      card.style.display = visible ? "flex" : "none";
+
+      if (visible) visibleCount++;
+    });
+
+    $("#emptyState").style.display = visibleCount ? "none" : "block";
+
+    $$(".category").forEach(button => {
+      button.classList.toggle("active", button.dataset.category === category);
+    });
+  }
+
+  $("#languageBtn").addEventListener("click", () => {
+    language = language === "en" ? "bn" : "en";
+    updateLanguage();
+  });
+
+  $("#searchInput").addEventListener("input", updateTools);
+  $("#searchBtn").addEventListener("click", updateTools);
+
+  $("#categories").addEventListener("click", event => {
+    const button = event.target.closest("[data-category]");
+    if (!button) return;
+    category = button.dataset.category;
+    updateTools();
+  });
+
+  $("#loginBtn").addEventListener("click", () => {
+    $("#loginModal").style.display = "flex";
+  });
+
+  $("#closeModal").addEventListener("click", () => {
+    $("#loginModal").style.display = "none";
+  });
+
+  $("#loginModal").addEventListener("click", event => {
+    if (event.target.id === "loginModal") {
+      $("#loginModal").style.display = "none";
+    }
+  });
+
+  $("#demoLogin").addEventListener("click", () => {
+    alert(language === "en"
+      ? "Demo only. Connect Firebase Authentication before enabling real login."
+      : "এটি ডেমো। আসল লগইনের জন্য Firebase Authentication যুক্ত করতে হবে।");
+  });
+
+  // Initialize each AdSense ad unit once.
+  window.addEventListener("load", () => {
+    document.querySelectorAll(".adsbygoogle").forEach(ad => {
       try {
-        const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-        return Array.isArray(saved) ? saved : [];
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
       } catch (error) {
-        return [];
+        console.warn("AdSense could not initialize this ad unit.", error);
       }
-    }
-
-    function saveCustomTools() {
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(customTools));
-        return true;
-      } catch (error) {
-        alert("Could not save tools in this browser.");
-        return false;
-      }
-    }
-
-    function escapeHTML(value) {
-      return String(value).replace(/[&<>"']/g, character => ({
-        "&":"&amp;", "<":"&lt;", ">":"&gt;",
-        '"':"&quot;", "'":"&#39;"
-      })[character]);
-    }
-
-    function getAllTools() {
-      return [...starterTools, ...customTools];
-    }
-
-    function renderCategories() {
-      $("categories").innerHTML = categories.map(category => `
-        <button type="button"
-          class="category ${selectedCategory === category ? "active" : ""}"
-          data-category="${escapeHTML(category)}">
-          ${escapeHTML(category)}
-        </button>
-      `).join("");
-
-      $("toolCategory").innerHTML = categories
-        .filter(category => category !== "All Tools")
-        .map(category => `<option value="${escapeHTML(category)}">${escapeHTML(category)}</option>`)
-        .join("");
-    }
-
-    function renderTools() {
-      const query = $("searchInput").value.trim().toLowerCase();
-
-      const results = getAllTools().filter(tool => {
-        const matchesCategory =
-          selectedCategory === "All Tools" ||
-          tool.category === selectedCategory;
-
-        const searchable =
-          `${tool.name} ${tool.description} ${tool.category}`.toLowerCase();
-
-        return matchesCategory && searchable.includes(query);
-      });
-
-      $("toolCount").textContent = `${results.length} tools`;
-
-      if (!results.length) {
-        $("toolsGrid").innerHTML =
-          '<div class="empty">No tools found. Try another search.</div>';
-        return;
-      }
-
-      $("toolsGrid").innerHTML = results.map(tool => `
-        <article class="tool-card">
-          <div class="tool-icon">${escapeHTML(tool.icon || "✨")}</div>
-          <h3>${escapeHTML(tool.name)}</h3>
-          <p>${escapeHTML(tool.description)}</p>
-          <div class="tool-meta">
-            <span class="tag">${escapeHTML(tool.category)}</span>
-            <span class="muted">AI Tool</span>
-          </div>
-          <a class="tool-link"
-             href="${escapeHTML(tool.url)}"
-             target="_blank"
-             rel="noopener noreferrer">Visit Website ↗</a>
-        </article>
-      `).join("");
-    }
-
-    function renderAdminList() {
-      if (!customTools.length) {
-        $("adminToolsList").innerHTML =
-          '<p class="muted">No custom tools added yet.</p>';
-        return;
-      }
-
-      $("adminToolsList").innerHTML = customTools.map(tool => `
-        <div class="admin-item">
-          <div>
-            <strong>${escapeHTML(tool.name)}</strong><br>
-            <small class="muted">${escapeHTML(tool.category)}</small>
-          </div>
-          <button type="button" class="delete-btn"
-            data-delete="${escapeHTML(tool.id)}">Delete</button>
-        </div>
-      `).join("");
-    }
-
-    function openAdmin() {
-      $("adminModal").classList.add("open");
-
-      if (!adminLoggedIn) {
-        $("loginSection").hidden = false;
-        $("adminSection").hidden = true;
-        $("adminPassword").value = "";
-        setTimeout(() => $("adminPassword").focus(), 50);
-      }
-    }
-
-    function closeAdmin() {
-      $("adminModal").classList.remove("open");
-    }
-
-    $("categories").addEventListener("click", event => {
-      const button = event.target.closest("[data-category]");
-      if (!button) return;
-
-      selectedCategory = button.dataset.category;
-      renderCategories();
-      renderTools();
     });
+  });
 
-    $("searchInput").addEventListener("input", renderTools);
-    $("searchButton").addEventListener("click", renderTools);
-    $("adminOpen").addEventListener("click", openAdmin);
-    $("adminClose").addEventListener("click", closeAdmin);
+  updateTools();
+})();
+</script>
 
-    $("adminModal").addEventListener("click", event => {
-      if (event.target === $("adminModal")) closeAdmin();
-    });
-
-    document.addEventListener("keydown", event => {
-      if (event.key === "Escape") closeAdmin();
-    });
-
-    function login() {
-      if ($("adminPassword").value === ADMIN_PASSWORD) {
-        adminLoggedIn = true;
-        $("loginSection").hidden = true;
-        $("adminSection").hidden = false;
-        renderAdminList();
-      } else {
-        alert("Incorrect password.");
-        $("adminPassword").select();
-      }
-    }
-
-    $("loginButton").addEventListener("click", login);
-
-    $("adminPassword").addEventListener("keydown", event => {
-      if (event.key === "Enter") login();
-    });
-
-    $("logoutButton").addEventListener("click", () => {
-      adminLoggedIn = false;
-      $("adminPassword").value = "";
-      $("loginSection").hidden = false;
-      $("adminSection").hidden = true;
-    });
-
-    $("toolForm").addEventListener("submit", event => {
-      event.preventDefault();
-
-      if (!adminLoggedIn) {
-        alert("Please log in first.");
-        return;
-      }
-
-      const name = $("toolName").value.trim();
-      const url = $("toolUrl").value.trim();
-      const category = $("toolCategory").value;
-      const icon = $("toolIcon").value.trim() || "✨";
-      const description = $("toolDescription").value.trim();
-
-      let parsedURL;
-      try {
-        parsedURL = new URL(url);
-      } catch (error) {
-        alert("Please enter a valid website URL.");
-        return;
-      }
-
-      if (!["https:", "http:"].includes(parsedURL.protocol)) {
-        alert("Website URL must start with https:// or http://");
-        return;
-      }
-
-      if (!name || !description || !category) {
-        alert("Please complete all required fields.");
-        return;
-      }
-
-      customTools.push({
-        id: "custom-" + Date.now() + "-" +
-          Math.random().toString(36).slice(2, 7),
-        name, url: parsedURL.href, category, icon, description
-      });
-
-      if (!saveCustomTools()) {
-        customTools.pop();
-        return;
-      }
-
-      $("toolForm").reset();
-      $("toolIcon").value = "✨";
-      renderTools();
-      renderAdminList();
-      alert("Tool added in this browser.");
-    });
-
-    $("adminToolsList").addEventListener("click", event => {
-      const button = event.target.closest("[data-delete]");
-      if (!button || !adminLoggedIn) return;
-
-      if (!confirm("Delete this custom tool?")) return;
-
-      const previousTools = customTools;
-      customTools = customTools.filter(tool => tool.id !== button.dataset.delete);
-
-      if (!saveCustomTools()) {
-        customTools = previousTools;
-        return;
-      }
-
-      renderTools();
-      renderAdminList();
-    });
-
-    renderCategories();
-    renderTools();
-
-    // Google Translate language selector
-    function googleTranslateElementInit() {
-      if (!window.google || !google.translate) return;
-
-      new google.translate.TranslateElement({
-        pageLanguage: "en",
-        includedLanguages: "ar,bn,zh-CN,zh-TW,cs,da,nl,en,fil,fi,fr,de,el,gu,hi,id,it,ja,kn,ko,ml,mr,ne,no,fa,pl,pt,pa,ro,ru,es,sv,ta,te,th,tr,uk,ur,vi",
-        autoDisplay: false
-      }, "google_translate_element");
-    }
-  </script>
-
-  <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
